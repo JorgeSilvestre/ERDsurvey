@@ -1,0 +1,118 @@
+\newcommand{\cabeceraGirada}[2]{
+	\mbox{\hspace{-2pt}\rlap{\rotatebox{#1}{#2}}}
+}
+
+\section{Current Applications of ERD.}
+\label{sec:applicationsNED}
+
+Apart from the mere recognition and linking of entities, ERD operations can be applied to other Natural Language Processing activities with texts. Below we summarize some of those activities, which are included in many of the related commercial products that are available right now.
+
+\paragraph{Text Enrichment and Annotation (Wikification).}
+
+The \emph{wikification} of a text is a concept introduced in \cite{mihalcea2007}. The wikification consists on annotating the entities that can be found in that text with links to a resource that describes that entity within a certain knowledge base. A wikified text resembles the general structure of a Wikipedia article, where the first mention to an entity that is described in another article is formatted as a link to that article.
+
+The idea behind this process is to extend the semantic information that a text can give by providing to the reader access to further information about the entities which the text is about. It can be in the form of hyperlinks to the corresponding Wikipedia article, a list of semantic categories that describes the entity, etcetera. The wikification includes the following operations: entity or concept recognition and disambiguation (if needed), entity categorization and classification, and entity linking.
+
+\paragraph{Text Categorization/Text Classification and Text Clustering.}
+
+The text categorization task consists on distributing a collection of texts between some pre-determined classes or categories. Most of the times, used categories are semantic classes defined as an ontology, which can establish a hierarchy between all the defined classes.
+
+Using ERD techniques, a classification system can determine the dominant semantic classes in the set of entities that can be found in a text, so it can assign that text to a specific category in his ontology. The most immediate application of this process can be found in news services, legal documents repositories, or any other area where automatic processing of large collections of texts is needed.
+
+Text clustering is a similar task to Text categorization, but in this case there is not a predefined set of categories. Instead, the system determines, using Machine Learning techniques, a custom set of categories that is suitable for a specific document collection as input.
+
+The system usually follows a simple principle: it processes the input set of documents sequentially, creating new categories (commonly referred as \emph{buckets}) for those documents that are dissimilar enough from every other processed document, so it can't be included in any of the existent buckets. If a document is similar to another group above a certain threshold, it will be assigned to that group of documents.
+
+Sometimes, this operations are named as Topic Detection. It usually leverages the ontology of the used knowledge base to assign a set of semantic tags or categories to the processed text.
+
+\paragraph{Related Suggestions.}
+
+Using the entities that are mentioned in a text, a system can determine a set of documents that are similar to another. For instance, it can be useful in sites with a regular publishing activity like news services and thematic blogs, giving its readers a set of related articles that can be interesting for him.
+
+This way, the site itself could act as a secondary knowledge base, in which each whole article is ``annotated'' with one or many resources from that knowledge base, that is, other articles that are related with the first one.
+
+\paragraph{Keyword Extraction.}
+
+Some systems -- specially those that use graphical models to represent the entities mentioned in a text -- can extract a measure of centrality (i.e. a measure of its relevance in that text) based on the semantic relationships between those terms. These ``central terms'' can be seen as key concepts or main topics, which jointly can act as a summary of the semantics of the text in which they are used.
+
+This keyword data can be also used to build a tag system in a similar manner to what Text Clustering does -- but with entity names instead of semantic categories.
+
+\paragraph{Text Summarization.}
+
+This use case is similar to the previous one, but in this case the obtained result can be a selection of ``key phrases'', which are those in which the key words appear. An advanced NLP system would be able to even form a new text from this key phrases set.
+
+\paragraph{Enrichment of Knowledge Bases, Semantic Networks and Databases.}
+
+Using information such as part-of-speech tags, grammatical categories and so on, a system may find a word or expression that can be a mention to an entity, even if in the underlying knowledge base there's not a resource to be used to annotate the mention.
+
+In a more general environment, NLP and ERD can be used to extract information about products, events and people to complete or improve the capacities of an information system by detecting new entities or inferring new relationships between known entities. This operation is frequently referred as Relation Extraction.
+
+\paragraph{Sentiment Analysis.}
+
+One of the most prominent tasks in NLP after the boom of the social networks and \emph{microblogging} is to determine the emotion or sentiment that is implicit in a post. This is very useful information to build market studies, to evaluate the impact of an event or a new product, etcetera.
+
+This can be accomplished by analysing the nature of the entities that are found in those posts: if an entity has the words ``destruction'', ``death'' and ``suffering'' as related terms in the knowledge base, we can be mostly sure that the semantic behind that post is not very positive. However, the accurate determination of the sentiment of a text is a very complex task and requires more resources beyond the above to satisfactorily reach its objectives.
+
+\paragraph{Automatic Translation.}
+
+Using the multilingual information from some of the knowledge bases commonly used in ERD, a NLP system could obtain an approximate translation of a text based in the entities included in it.
+
+\paragraph{Semantic Search.}
+
+Most of the search engines that we use today only use the ``key terms'' that the user introduced in his query and retrieves the most relevant results taking them into account, i. e., the documents that contain most of these key terms, or in which they are repeated more frequently. Of course, the process behind a modern search engine is more complex that the depicted here.
+
+A semantic engine search goes beyond the word matching and takes into account the semantic of the terms included in the search query. This way, it can use the relationships between the entities to retrieve more useful and accurate results. It also permits to ask queries in which the key terms are omitted or diffuse: it can be seen in Google Search by searching ``best movies of 2017'', in which we do not enter any concrete named entity, but we get a complete list of movies that fits the given description.
+
+This techniques are the basis for the development of the question-answering systems used in customer support, automatic tourism information tools, etcetera.
+
+\subsection{Success Stories}
+
+In the \autoref{tab:successStories} we list some of the most prominent products that successfully make use of parts or whole of the pipeline of ERD to provide some NLP services related to digital text processing.
+
+\begin{table}[!ht]
+	\begin{tabular}{l*{9}{p{0.03\textwidth}}}
+		%\toprule
+		Name & \cabeceraGirada{45}{Wikification} & \cabeceraGirada{45}{Categorization} & \cabeceraGirada{45}{Related texts} & \cabeceraGirada{45}{Keyword extraction} & \cabeceraGirada{45}{Summarization} & \cabeceraGirada{45}{KB enrichment} & \cabeceraGirada{45}{Sentiment analysis} & \cabeceraGirada{45}{Automatic translation} & \cabeceraGirada{45}{Semantic search} \\
+		\midrule
+		Alchemy API & $\surd$ & $\surd$ &  & $\surd$ &  & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		Ambiverse & $\surd$ & $\surd$ &  & $\surd$ &  &  &  &  & \\
+		Bitext & $\surd$ & $\surd$ &  &  &  &  & $\surd$ &  & \\
+		Cicero & $\surd$ & $\surd$ &  & $\surd$ &  &  &  & & \\
+		Cogito & $\surd$ & $\surd$ &  & $\surd$ &  & $\surd$ &  &  & $\surd$ \\
+		Diffbot & $\surd$ & $\surd$ &  &  &  & $\surd$ &  &  & \\
+		Klangoo Magnet & $\surd$ & $\surd$ & $\surd$ &  & $\surd$ &  &  &  & \\
+		MeaningCloud & $\surd$ & $\surd$ &  & $\surd$ &  & $\surd$ &  &  & \\
+		MonkeyLearn & $\surd$ & $\surd$ & $\surd$ &  &  &  & $\surd$ &  &  \\
+		NetOwl & $\surd$ & $\surd$ &  &  &  &  & $\surd$ & & $\surd$ \\
+		\makecell[l]{Rosette Entity \\Extractor (REX)} & $\surd$ & $\surd$ &  &  &  & $\surd$ & $\surd$ & $\surd$ &  \\
+		Zemanta &  &  & $\surd$ &  &  &  &  & & \\
+		\bottomrule& & 
+	\end{tabular}
+
+\caption{Commercial products that implement NERD operations in its pipeline.}
+\label{tab:successStories}
+\end{table}
+
+\paragraph{Alchemy API}
+
+\paragraph{Ambiverse}
+
+\paragraph{Bitext}
+
+\paragraph{CiceroLite}
+
+\paragraph{Cogito}
+
+\paragraph{Diffbot} Specialized in web-crawling and HTML documents.
+
+\paragraph{Klangoo Magnet}
+
+\paragraph{Meaning Cloud}
+
+\paragraph{MonkeyLearn}
+
+\paragraph{NetOwl}
+
+\paragraph{Rosette Entity Extractor (REX)}
+
+\paragraph{Zemanta}

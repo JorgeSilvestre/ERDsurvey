@@ -1,0 +1,177 @@
+\section{Common techniques.}
+\label{sec:techniques}
+
+\subsection{Context analysis.}
+\label{sec:techniques:context}
+
+\paragraph{Cosine Similarity}~
+
+Cosine similarity measures the overlapping between two set of words as a measure of similarity. This method is extensively used in the state of the art, as it is a well-known, easy to implement measure of similarity that also has a computationally cheap implementation. This calculation implies the transformation of the original textual proof --a string, a sentence, a set of sentences-- into a vector in a multidimensional word vector space. The higher this value, the more similar are the analysed sets of words, as they have more words in common. Texts used for context comparison should be stop-worded as a preliminary step, as very common and semantics-empty words could introduce a great amount of noise into the comparison.
+
+Given two sets of words $\vec{a}$, $\vec{B}$, which form an angle of $\theta$, the cosine similarity is calculated as follows:
+%
+\begin{equation}
+cosine\,similarity = cos(\theta) = \frac{\vec{a} \cdot \vec{b}}{||\vec{a}||_2 ||\vec{b}||_2} = \frac{\sum^n_{i=1} a_i b_i}{\sqrt{\sum^n_{i=1} a_i^2}\sqrt{\sum^n_{i=1} b_i^2}}
+\label{eq:cosine}
+\end{equation}
+
+\paragraph{Jaccard Similarity Coefficient}~
+
+Also known as Jaccard index, the Jaccard Similarity Coefficient measures the amount of common elements between two sets. Its value for two given sets $A$, $B$ is calculated as follows:
+%
+\begin{equation}
+Jaccard = J(A,B) = \frac{|A \cap B|}{|A \cup B|} = \frac{|A \cap B|}{|A| + |B| - |A \cap B|}
+\label{eq:jaccard}
+\end{equation}
+
+The idea behind this measure is the same as the Cosine Similarity: the more concepts are present in both input sets --that is, two pieces of context from two different entities--, the higher is the similarity degree between them both. However, this method does not use a ``reference vector space'', so the value only depends on what is in these sets. Moreover, it also implies the diversity between both sets, as the number of dissimilar elements affects the final value.
+
+\paragraph{Edit Distance}~
+
+Edit distance between two words or strings measures the dissimilarity between them by quantifying the number of operations that must be performed on one of them to obtain the other. Several edit distance methods differ in the nature of the operations that can be applied, from simple permutation to insertion or deletion of characters. Two measures that are frequently used in the state of the art are Jaro-Winkler and Levenshtein distances.
+
+\paragraph{Jaro-Winkler Distance}
+
+This magnitude is based in the Jaro distance, which indicates the minimum number of transpositions of a single character to change a word into another. It does not permit other operations than transposition, so it only takes in account the common characters to perform the transformations. Jaro-Winkler introduces a new factor that provides better scores if both words start with the same character sequence.
+
+Its value is provided by the combination of the following expressions. Variables $s_1$ and $s_2$ are the two character strings that are going to be compared, and $m$ is the number of common characters that also appear in the same order. The number of transpositions is half the number of common characters between both strings that have a different relative position against the remainder characters. Finally, $t$ is half the value of the number of transpositions.
+%
+\begin{equation}
+sim_j = \begin{cases}
+		0 & if m=0 \\
+		\frac{1}{3}\left( \frac{m}{|s_1|} + \frac{m}{|s_2|} + \frac{m-t}{m} \right) & otherwise \\
+	\end{cases}
+\label{eq:jaro}
+\end{equation}
+
+Jaro-Winkler extension introduces two new parameters: $l$, which is the length of the prefix that is common to both strings (if $l=0$, Jaro and Jaro-Winkler expressions coincide); and $p$, a fixed value for adjusting the final result (usually $p=0.1$).
+
+\begin{equation}
+sim_w = sim_j + (lp(1-sim_j))
+\label{eq:jaroWinkler}
+\end{equation}
+
+\paragraph{Levenshtein Distance.}
+
+This measure allows deletion, insertion and substitution of single characters instead of transpositions. It measures the number of individual character edits that are needed to transform a string into another. For a pair of strings $s_1,s_2$, the Levenshtein Distance is calculated as follows:
+
+\begin{equation}
+lev_{s_1,s_2}(i,j) = \begin{cases}
+max(i,j) & if min(i,j)=0, \\
+min\begin{cases}
+	lev_{s_1,s_2}(i-1,j)+1 \\
+	lev_{s_1,s_2}(i,j-1)+1 \\
+	lev_{s_1,s_2}(i-1,j-1)+1_{(a_i \neq b_j)} \\
+\end{cases}
+& otherwise\\
+\end{cases}
+\label{eq:levenshtein}
+\end{equation}
+
+$i,j$ indicates the position of the last character that is considered from the strings $s_1$ and $s_2$, respectively, so $lev_{s_1,s_2}(i,j)$ indicates the distance between the first $i$ characters from $s_1$ and the the first $j$ characters from $s_2$. On the other hand, the function $1_{(a_i \neq b_j)}$ is equal to 0 if $a_i = b_j$, and equal to 1 if $a_i \neq b_j$.
+
+
+
+\subsection{Semantic similarity evaluation.}
+\label{sec:techniques:semantic}
+
+Semantic coherence between all entities in a text is a key feature for many Entity Linking systems. They work under the hypothesis that the semantics along a text should be coherent, so the entities that appear in it should have some semantic relation between them. This way, in case of ambiguity, candidate entities that keep a stronger degree of semantic relationship with the remainder of the entities in the text should be rewarded with ``extra points'' during the disambiguation process.
+
+Multiple approaches has been proposed to measure this parameter. Below we enumerate some of the most frequent methods in the state of the art of Entity Linking.
+
+\paragraph{Normalized Google Distance}~
+
+Google Distance is a semantic similarity measure that leverages the results from a query in the Google Search engine. The final score that a pair of terms obtain depends on the amount of results they provide, both combined and by their own. On one hand, the more common one of the terms is, the worse its discriminative power will be and the NGD value will be higher. On the other hand, a high number of results in which both terms appear will reduce the NGD score of the pair of terms.
+
+Normalized Google Distance is defined as follows. $N$ is the number of indexed web pages by Google, multiplied by the average number of occurrences of the search terms in them. Given two search terms, $x,y$, $f(x)$ and $f(y)$ are the number of results for each one of them, and $f(x,y)$ the number of results in which both terms appear.
+
+\begin{equation}
+NGD(x,y) = \frac{\max \{ \log f(x), \log f(y) \} - \log f(x,y)}{\log N - \min \{ \log f(x), \log f(y)\}}
+\label{eq:normalizedGoogleDistance}
+\end{equation}
+
+This approach fits well when using Wikipedia and wikilinks instead of Google Search, as Milne and Witten demonstrate in their works. This method is used directly in many EL works like \cite{zhang2014}, and constitutes the base to the development of Milne and Witten's WLM.
+
+\paragraph{Milne and Witten, or Wikipedia Link-Based Measure, WLM}~
+
+Milne and Witten presented in \cite{witten2008} a measure to calculate the degree of semantic relationship between two entities by using their respective Wikipedia articles. The authors hypothesize that two semantically related entities will have wikilinks that point to the same articles, as well as they should be linked by the same articles. That is, the more incoming and outgoing wikilinks they share, the more related can they be considered.
+
+The used expression when calculating the semantic coherence is included below. This formula is derived from the Normalized Google Distance, which takes into account the common words between two web pages to obtain a similarity degree value. Milne and Witten adapted this definition to work with Wikipedia, which they used as the underlying knowledge base for their Entity Disambiguation system (see \autoref{sec:edSystems}). Given two Wikipedia articles $a$ and $b$, the set of all the articles in Wikipdia, $W$, and the sets of articles $A$ and $B$ that link to those articles, respectively:
+
+\begin{equation}
+MW(a,b) = \frac{\log{(\max{(|A|,|B|)})}-\log{(|A \cap B|)}}{\log{|W|} - \log{(\min{(|A|,|B|)})}}
+\end{equation}
+
+The accessibility of Wikipedia and the light-weight calculation that this expression requires have converted this measure into a fundamental parameter in many EL systems that includes semantic coherence into their pipelines.
+
+\paragraph{Random Walks (with and without restart)}~
+
+Random walks algorithm in Entity Linking is useful to bring an approximate solution to the complex graphs that can be generated during the disambiguation process. Given a graph with weighed edges, a root node is selected to initialize the algorithm. Then, a predefined number of steps or ``hops'' are performed, where the focus is displaced from the actual node to one of the nodes with which it shares an edge. The weights of the edges are used as ``jump probabilities'', so it is more probable to jump into a node that is linked with a strong edge than into a node with a lower weight. The number of times a node is focused is registered. 
+
+The idea is to discriminate the most relevant or \emph{central} nodes in the graph. Most connected nodes should end with the highest ``hops'' counters, as well as the nodes that have the strongest incoming edges. In a EL environment, this set of nodes should include the most relevant and semantically coherent set of entities in the input text. Hence, the candidate with the highest score for each ambiguous mention can be reliably selected as the correct annotation from a semantic point of view.
+
+There exists a variant in which a \emph{restart probability} is introduced. Before each step is made, there is a certain probability of the focus returning to the root node, although the step counter nor the scores for the remainder nodes are not set to zero. If this jump occurs, the process continues with the root node as the actual node. This modification, in combination with a carefully selected root node, lets us to condition the final result around a central concept. For instance, if we have to process a text about Bruce Springsteen, the entity node that represents the artist should be a great root node, as the most relevant entities should have a somewhat direct relationship with this node. However, this can introduce a bias that may not be adequate in less specific kind of texts.
+
+\paragraph{HITS algorithm}~
+
+HITS algorithm \cite{kleinberg1999}, or Hyperlink-Induced Topic Search, measures the importance of a certain web page by analysing the quality of the pages that link it. To this end, two kind of linking pages are described: hubs, pages that gather large collections of outgoing links, and authorities, those that are frequently linked and can be considered as ``high value'' pages, so if a page is linked by one of these it may indicate the fact that it is also a valuable resource.
+
+The algorithm consists on scoring a resource by looking at which resources point at it. First, a \emph{root set} of pages is formed with a handful of relevant resources given the page that is being scored. Then, this set is expanded by gathering all the linked pages in the root set to build the \emph{base set}, and some of the pages that link the pages in the root set. The final score is generated based on the link structure and the page type following an iterative sequence of steps.
+
+This method is easily exportable to EL. For instance, Wikipedia's articles and list pages seems analogous to the authoritative and hub pages. \cite{usbeck2014agnostic} implements this algorithm in its ERD pipeline.
+
+\paragraph{Page Rank}~
+
+Google's Page Rank aims to the same objectives as HITS, but its implementation is different. It does not divide web pages into authoritative and hubs, but all the pages are considered as equal at the beginning of the algorithm.With Page Rank, each page propagates its value to the pages it links to, so the value of a page is the sum of the propagated value from all the pages that link it.
+
+The propagated value depends both on the value of each page and the number of links it contains. The more links a page have, the less each individual link will count, as depicted in the equation below. $B_u$ is the considered set of web pages, and $u$ a web page in this set. $L(x)$ function represents the number of outgoing links a page has.
+
+\begin{equation}
+PR(u)= \sum _{v \in B_u} \frac{PR(v)}{L(v)}
+\label{eq:pagerank}
+\end{equation}
+
+Page Rank is also suitable to weigh semantic graph's nodes in collective approaches for ED tasks as a node centrality measure.
+
+
+\paragraph{Eigenvalues}~
+
+In \cite{hulpus2013}, authors propose the use of eigenvalues in the disambiguation process, given its success in Word Sense Disambiguation tasks. As described by the authors, it is a unsupervised method that allows to perform a collective disambiguation over a set of mentions without any preprocessing, at the cost of a higher computational cost. This method can obtain a score for each of the possible assignation combinations in an ED problem, so it allows to implement a joint disambiguation system -- all mentions are disambiguated at a time.
+
+Eigenvalues are calculated by operating over the adjacency matrix that describes a certain weighed graph (if it is not weighed, values would be either 0 or 1). The strength of the relationship between two entities is their inner product. The application of eigenvalues in WSD is further explained in \cite{hulpus2012}.
+
+{\color{red} Revisar. Matrices, álgebra... Mirar con calma.}
+
+
+
+
+\subsection{Machine Learning algorithms.}
+\label{sec:techniques:ml}
+
+{\color{red} A partir de aquí se me va un poco de las manos. Me falta base a la hora de comprender bien en qué consiste cada método, no digamos ya para explicarlo. Podría ceñirme a las aplicaciones concretas que hace cada autor de los distintos métodos, pero en general no dan muchos detalles y no me sirve para entresacar qué hacen exactamente.}
+
+
+\paragraph{SVM (Support Vector Machine) and SSVM (Structred Support Vector Machine)}~
+
+Support Vectr Machines are supervised learning models for classification tasks. Using a set of training examples, SVM should be able to classify a given observation (that is, a mention) into one of a set of possible categories or classes. The training set is used to determine the limits between classes by observing a set of features in the provided examples. The set of features are combined in an objective function that provides an score, which is used for the classification.
+
+From the Entity Linking point of view, categories correspond with the set of candidate entities for a given mention. Then, the SVM must decide which of the candidate entities fits best with that mention, based on the provided training set and the features the mention presents. A common implementation is using a confidence threshold: SVM acts as a binary classifier where the limit between annotating or not is a minimum score for each one of the candidates.
+
+\paragraph{CRF (Conditional Random Fields)}~
+
+% http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/
+
+CRF is a common discriminative undirected graphical model for classification purposes. It fits in the EL conception of a mention-entity graph, where each mention node (i.e. an observation) must be assigned an entity (i.e. a random variable), to annotate it. CRF assigns a label to each mention individually, but taking in account the previous annotations. Most common implementation of CRF in Entity Linking is linear-chain CRF.
+
+Then, a set of features from the observation is analysed. To this end, we define a set of feature functions that measure them, which can be weighed to favour some features against others in the final result. These weights can be arbitrarily fixed or learned from a training set of examples. This way, each candidate can be scored by using these feature functions so the CRF can output the candidate with the highest score for each of the mentions in a text.
+
+\paragraph{Random Forests}~
+
+Random forests is a learning algorithm that constructs a set of decision trees during the training step and use them for classification purposes. During the training step, multiple decision trees are generated and stored based on the examples that are included in the training set. Then, these trees are clustered by averaging their features and then used to classify new input samples into the constructed clusters or categories.
+
+%\paragraph{MART gradient boosting}~
+
+
+
+%\subsection{Other.}
+%\label{sec:techniques:other}

@@ -1,0 +1,80 @@
+\section{Introduction}
+
+\begin{comment}
+Today, it is undeniable that the Artificial Intelligence (in short, AI) will play a fundamental role in our daily routine. The goal of making our lives easier has a powerful ally in this kind of technologies, as it can substitute many of the activities that can not be acknowledged by scripted means and therefore they need the human supervision to be fully accomplished.
+
+Applications are diverse, and it is easy to find many areas in which AI will have an important role. Traffic control, nutritionism, terrorism fighting, image processing, military actions... Artificial intelligence may have a word or two to say in every human activity in the next few years.
+
+Many of this applications imply the interaction between a human and a machine. However, this information exchange may not be immediate. The way we communicate with each other is not the same as how the machines can communicate between them, so it is necessary to find a common point to make this communication possible, and furthermore usable enough. As the implantation of Artificial Intelligence has to be massive, and given the fact that only few people are able to speak in terms of 0s and 1s, the obvious approach should be to make the human language as this middle point. However, that is not an easy task.
+
+The science that tackles this challenge is known as Natural Language Processing (hereafter NLP). This science comprises a broad set of disciplines: linguistics, computing engineering, and even psychology, are branches that must do their part to successfully accomplish this task. Currently, the success in this area consists not only in letting the machine comprehend what it is being told (what could be accomplished with just key words or pattern recognition), but also in making it able to participate from peer to peer with a human in an effective communication. This implies that it need to be able to face many features the human language has; for instance, irony is a linguistic figure so complex that can be difficult to understand even for human minds. 
+
+A great example of application of Artificial Intelligence that requires are personal assistants. Personal assistants are going to become a prevalent reality in almost no time, as we can see in the recent increase in the population of this systems: Siri from Apple, Cortana from Microsoft, Google Home from Google or Alexa from Amazon are the most prominent examples. This systems let us speak in human terms with our devices and make them simple actions, like making an appointment or setting up an alarm. However, there is an active research in  this area so this systems can do more advanced actions. For instance, supporting our online shopping activities.
+
+In this paper we are going to study a discipline that has become essential for NLP: Named Entity Recognition and Disambiguation. Let us introduce this concept with an example. Lets figure we want to buy the autobiographical book by Bruce Springsteen, titled \emph{Born to Run}, with Siri helping us. Suppose we just need a simple command to do it: ``Siri, buy one copy of Born to Run by Bruce Springsteen''. To fully understand this statement, Siri should be able to identify which parts of the sentence are relevant (which we can call \emph{mentions}), and to determine what do this parts mean. Here is where the Named Entity Recognition do its role: this task should take the previous sentence as input and identify ``Bruce Springsteen'' and ``Born to Run'' as valuable pieces of information. It is easy to know what is ``Bruce Springsteen'' referring to (the widely known American singer and song-writer), but ``Born to Run'' may be a little bit challenging. What are we referring to: the mentioned book, the famous 1975 album by Bruce Springsteen or (if we are collectors or music lovers) the original single from that album? To decide between these possible meanings we have to apply Named Entity Disambiguation. This process takes a \emph{ambiguous mention} as input and resolves which of the possible meanings is the correct one.
+
+Named Entity Recognition and Disambiguation, which we will refer to as NERD, is a young and in continuous development science. Our main goal for this paper is to offer a complete and updated study of the state of the art from its beginnings in 2006 until now. To this end, we describe the different approaches that have been proposed and the many challenges that have been addressed during its evolution following the structure defined in the next section.
+
+{\color{red} Posiblemente haya que describir un poco más detalladamente el concepto de NERD, no sé si queda muy claro para alguien que no conozca previamente todo esto.}
+
+\end{comment}
+\begin{comment}
+Nowadays, much text data is daily generated from many and varied sources of information. News agencies, government institutions or domain-specific websites publish documents and HTML-based contents which report information abut politics, economy, sports, science, etc.  (** aquí faltaría alguna frasecilla de qué se hace con esta iformación, algo parecido a lo que digo después con las redes sociales **) On the other hand, most modern sources of information, like blogs or social networks, output a quasi-infinite stream of user-generated contents which draw a big picture about our daily life. It is usual to check Twitter or Instagram accounts of politicians, soccer players or celebrities to generate new "relevant information", but it is obvious that the long-tail theory also apply to social networks and much relevant information could be hidden under less recognizable profiles.
+
+\noindent\rule{\textwidth}{1.5pt}
+\end{comment}
+
+Nowadays, it is indubitable that we live in the Information Era. Billions of bits are constantly generated in multiple forms -- audiovisual productions, computer code, plain text -- in a continuous and, generally, unstructured stream of data. An important part of this amount is publicly available, so it could constitute an accessible and cheap source of knowledge. However, this data must be refined in order to convert it in a valuable resource, that is, information. The form that this data adopts determine the way it should be processed. The procedures and techniques are diverse, but most of them have a common goal: the automation of the process, given the scale of the problem.
+
+Among the multiple forms that the data can adopt, written text is one of the most important. Millions of documents are published daily by news services, governments, website owners and users of social networks. Information Extraction is the science that aims to structure this kind of data and even generate new information from it, and it has constituted a fundamental tool in recent years.
+
+In this paper, we will focus on an specific area of Information Extraction: Entity Recognition and Disambiguation, also known by its acronym ERD. ERD aims to discover and identify all the entities that are present in a text, such as people, places, events or concepts. This way, a plain text may be transformed in a document where all their entities are identified and can be easily processed by a machine, so it can understand the semantics behind that text.
+
+However, this kind of documents are often redacted in natural language -- that is, \emph{human} language --, so it is not very machine-friendly. Natural language is very unstructured and can present great challenges such ellipsis, metaphors or irony, all of them easy to solve for a human, not that much for a computer. Natural Language Processing, or NLP, is the field whose goal is to make possible the communication between a person and a machine in human terms, that is, in natural language. ERD makes use of many resources and techniques coming from NLP to accomplish his objectives, finding great success since its beginnings in 2006.
+
+The most common task ERD has to accomplish is \emph{annotation}. Annotation is related to what is called text enrichment, which consists on embedding further information about the semantics of the text in the text itself as a form of metadata. The common approach is to tag the mentions of entities in a text with a hyperlink with information of that entity, although there are alternatives like lists of entities or semantic categories. In general, these hyperlinks point to a certain source of knowledge -- a knowledge base -- like Wikipedia or DBpedia. For instance, after ERD every entity in a text should get a link to the Wikipedia's article that describes it. The task of annotation is widely known as Entity Linking.
+
+ERD has to face its own challenges. The biggest one is what motivates the \emph{Disambiguation} part: in many cases, we can find a name that may represent two or more entities. For instance, look at this short text:
+
+\begin{quotation}
+Bruce Springsteen's Born to Run is heavily impregnated with the hope and dreams of his youth in New Jersey. In opposition, The River tells a story of disappointment and failure in his search of the promised land.
+\end{quotation}
+
+Although some entities may be easily identified, like Bruce Springsteen and New Jersey, others may be difficult even for a human. Using the context we may not be able to determine if with \emph{Born to Run} the text refers to the Springsteen album, the song of the same title or his recent autobiographical book. Something similar happens with \emph{The River}. We would hesitate to identify \emph{promised land} as an entity, as there is a song by Springsteen with that exact same title.
+
+As we can see, challenges that ERD has to face are everything but trivial. ERD tackles these and other many difficulties with a wide set of proposals and different tools, which we describe in the remainder of this paper.
+
+The most common task ERD has to accomplish is \emph{annotation}. Annotation is related to what is called text enrichment, which consists on embedding further information about the semantics of the text in the text itself as a form of metadata. 
+
+The evolution of this science has been guided mainly by the type of text it has to process. At the beginning, back in 2006, the main focus of attention were news articles. This kind of document consists on texts with a high density of entities, most of them corresponding with the so called Named Entities. This motivates the original denomination of ERD: NERD, which stands for Named Entity Recognition and Disambiguation. Named entities are those that are unique and have a proper name, e.g. people, places or events.
+
+However, the scope of NERD was later widened to cover less specific entities. There we can talk about conceptual entities, that refer to concepts, objects or animals. Researchers concluded that, as these entities have their own meanings, they could contribute to the semantics of a text, and therefore they should be included in the NERD process.
+
+The latest step in ERD evolution has come with the boom of the so called microposts. This type of text is characteristic of the social networks, which determines its nature: these are short texts, redacted in a colloquial manner and therefore unstructured or poorly constructed. This properties made difficult to keep using the traditional techniques of ERD, as microposts generally lack important features like contextual information.
+
+The importance of microposts in today's world can not be ignored: everyday, thousands of users pour its likes, life habits and consuming practices in their favourite social networks. This can be an invaluable resource in terms of market analysis or public relationships. On the other hand, news services make a profuse utilisation of social networks to instantly bring to their readers and consumers every article or news that they produce. ERD can play a big role in both scenarios, as both would benefit from catching the semantics behind those kind of texts. However, these are only two examples of what ERD is capable to do.
+
+To reach a better understanding of how ERD works and what are its possibilities, we have elaborated a revision of the state of the art, attending to the development of this sector along his lifetime. A brief description of the contents of our work are listed in the subsection below.
+
+
+
+\subsection{Paper structure.}
+
+The remainder of this paper will cover the following topics:
+
+In \autoref{sec:applicationsNED}, we will make an approach to the present of ERD by describing some frequent applications where ERD plays an important role. We also enumerate a set of systems that have got success in implementing and commercializing ERD tools.
+
+In \autoref{sec:background} we delve in the ER and ED processes, describing every relevant concept that is implied in their respective pipelines. We depict a generic ERD pipeline and explain some basic techniques used to tackle the main challenges for a successful ERD process.
+
+In \autoref{sec:approximations} we discuss the main approaches that have been proposed to tackle the ERD task. The specific implementations of these solutions -- that is, the tools of the state of the art -- are described in \autoref{sec:erSystems} and \autoref{sec:edSystems}, in which we make a classification of the tools and further detail them when needed.
+
+In \autoref{sec:evaluation} we enumerate some of the aspects that are relevant to the evaluation of an ERD system. To this end, we explain the different experiments we can make with an ERD system, the common metrics of interest that have to be measured, and the standard datasets used for the benchmarks. We also introduce the tool we use to test some aspects of the tools included in our benchmarking proposal, the GERBIL Framework \cite{gerbil2015}.
+
+In \autoref{sec:benchmark} we describe our experimental setup and discuss the results we got in our experiments.
+
+
+
+
+
+
+

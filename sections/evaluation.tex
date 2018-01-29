@@ -1,0 +1,92 @@
+\section{Evaluation of NERD Systems.}
+\label{sec:evaluation}
+
+Given the large variety of proposals in the state of the art, there must be a way to evaluate them, so we can choose the one that can provide a better performance under certain conditions. To this end, we define a set of common metrics and tools that are extensively used to evaluate, characterize and compare between NERD systems.
+
+\subsection{Metrics.}
+
+NERD process is somewhat similar to the Information Retrieval process, as it consists on extracting a set of relevant results from a certain data base. In NERD, this has two facets: on one hand, the results are the mentions in the text, and the data base is the text itself during the NER phase; on the other hand, during the NED phase, the data base is the knowledge base (or the entity catalogue) in use, and the results are the entities which represent the mentions that have been found in the text.
+
+In Information Retrieval there is the \emph{query} concept: a query is a description or a condition that the results must fulfil to be considered as \emph{relevant}; i.e. correct or valid. In NERD, there is two main queries: first, find all the mentions in a text; second, find the adequate entity for each one of those mentions. These two queries are solved in NER and NED phases, respectively. We can argue that there are a third query, that is, the one that provides all the candidate entities for each one of the mentions. However, the complexity of this query is lesser than the others' -- it is commonly reduced to a search in an index-- , so we may put it in a background. 
+
+In both steps, there may be situations in which some results are not retrieved, or many incorrect results are provided to the further phases of the NERD pipeline. Given this, we can define four types of results that let us to define many interesting metrics to evaluate the quality of a NERD system:
+
+\begin{enumerate}
+	\item True positives: These are the results provided by the systems that are correct and relevant. In NERD, they would be either correctly tagged mentions or the mentions annotated with the corresponding entity.
+	\item False positives: Those results that have been provided by the system, but they are not a relevant result, thus they are not a correct spot. These can be either phrases tagged as mentions, although they do not really represent any entity, or mentions annotated with a wrong entity.
+	\item True negatives: This group gather all the possible results that should be dismissed because they are not valid results. It includes all the possible mentions that are not tagged as such, and also those mentions that should not and are not annotated with any entity.
+	\item False negatives: They correspond with all the results that are relevant, but are omitted by the system. In NERD, these may be the mentions that are not spotted and tagged as such, and the mentions that are not annotated with any entity, although the correct one is within the knowledge base.
+\end{enumerate}
+
+Based in these basic metrics, we can define the main set of measures that are frequently used to describe the performance of a NERD system:
+
+\paragraph{Precision.}
+
+Precision measures the proportion of the retrieved results that are actually relevant for the query. That is, precision is mainly related to the number of true positives and false positives. The higher this metric is, the lesser irrelevant results are retrieved, so we can have a high confidence on the correctness of the provided output. Precision also has an impact on the efficiency of the system, as it does not input irrelevant elements that would have to be processed in later phases although they are not significant for the query. This is the case of false mentions in NERD, that can lead to incorrect entity annotations, for instance. \autoref{eq:precision} shows how precision is calculated.
+
+\begin{equation}
+precision = \frac{|\{\text{actual mentions}\} \cap \{\text{tagged mentions}\}|}{|\{\text{tagged mentions}\}|}
+\label{eq:precision}
+\end{equation}
+
+\paragraph{Recall.}
+
+Recall is the metric that denotes the proportion of results that are actually retrieved by the system, over the set of results that match the query. Recall relates with the amount of true positives and false negatives. The higher this value, the more reliable is the system in terms of not omitting relevant results for a given query. A good recall is particularly important during the NER phase, as every mention it leaves out it will not be considered during the NERD phase, thus not annotating it correctly. The expression behind the recall is shown in \autoref{eq:recall}.
+
+\begin{equation}
+recall = \frac{|\{\text{actual mentions}\} \cap \{\text{tagged mentions}\}|}{|\{\text{actual mentions}\}|}
+\label{eq:recall}
+\end{equation}
+
+\paragraph{F1 or F-measure.}
+
+F1 relates both of the previous metrics in one normalized value as shown in \autoref{eq:f1}. It is the harmonic mean of both values, and it provides a value in the range $[0..1]$.
+
+\begin{equation}
+F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+\label{eq:f1}
+\end{equation}
+
+\paragraph{Throughput.}
+
+\paragraph{Computational Complexity.}
+
+\paragraph{¿Scalability?.}
+
+
+
+\subsection{Datasets.}
+
+In order to measure the quality of a NERD system in an objective and comparable manner, a common practice is to use well known set of documents. In most cases, this kind of document collections have become a true standard to benchmark a system's capabilities, as they provide a controlled environment to test a NERD system, while also letting us to evaluate that system in specific contexts, e.g. processing of microposts or processing of large sets of documents. 
+
+\paragraph{AIDA/CoNLL}     
+
+\paragraph{AQUAINT}     
+
+\paragraph{MSNBC}     
+
+\paragraph{N3 Reuters-128}     
+
+\paragraph{N3 RSS-500}     
+
+\paragraph{Open Knowledge Extraction (OKE)}     
+
+\paragraph{Reuters-21578}     
+
+\paragraph{Wikilinks}     
+
+\paragraph{WP} 
+
+
+
+\subsection{Operations and Experiment Types.}
+
+%% DKB, C2KB, Sc2KB, A2KB, Sa2KB, Rc2KB...
+
+
+
+  
+
+
+
+\subsection{GERBIL Framework.}

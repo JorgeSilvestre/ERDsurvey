@@ -1,0 +1,302 @@
+\section{Approximations to ERD.}
+\label{sec:approximations}
+
+\hspace*{30pt}
+\noindent
+\begin{minipage}[b]{.4\textwidth}%
+	\schema{
+		\schemabox{a. Información}
+	}{
+		\schemabox{
+			Prominencia \\
+			Local \\
+			Colectivo
+		}
+	}
+
+	\medskip
+
+	\schema{
+		\schemabox{b. Tipo de texto}
+	}{
+		\schemabox{
+			Estándar \\
+			\textit{Microposts}
+		}
+	}
+\end{minipage}
+%	\medskip
+\hspace*{20pt}
+\begin{minipage}[b]{.4\textwidth}%
+	\schema{
+		\schemabox{c. Modelos de datos}
+	}{
+		\schemabox{
+			\textit{Bag of Words} \\
+			Grafos
+		}
+	}
+
+	\medskip
+
+	\schema{
+		\schemabox{d. Métodos}
+	}{
+		\schemabox{
+			Matemáticos \\
+			\schema{
+				\schemabox{Aprendizaje automático}
+			}{
+				\schemabox{
+					Supervisado
+					%: Deciden la entidad candidata adecuada en base\\ a un conjunto de entrenamiento totalmente anotado.
+					\\
+					Semi-supervisado
+					%: Deciden la entidad candidata adecuada en base\\ a un conjunto de entrenamiento parcialmente anotado.
+					\\
+					No supervisado
+					%: Deciden la entidad candidata adecuada en base\\ a un conjunto de entrenamiento sin anotar.
+				}
+			}
+		}
+	}
+\end{minipage}
+
+\subsection{Used Information During the Disambiguation Phase.}
+
+This classification is proposed in \cite{aida2016}.
+
+\paragraph{Prominence-based Methods}
+
+These are the first and most simple approach that has been proposed to solve the ambiguity problem. The idea is to annotate each ambiguous mention with the most probable candidate entity, i.e. that with the higher prior probability.
+
+As we pointed before, this method has an inherent error probability that in many cases is not negligible. Lets assume that for the surface form ``Born to Run'' we only have two candidate entities, the album and the song, with values of prior probability of $0.6$ and $0.4$, respectively (note that these are normalized values). Every time the mention ``Born to Run'' is found, it will be linked with the entity ``Born to Run (music album)''. However, if the probability model is correct in 4 out of 10 times that mention is used in a text it should be referring to the entity ``Born to Run (song)'', so our algorithm is throwing a wrong result the $40\%$ of the times.
+
+The previous situation can be mitigated in very restricted or specialized environments where the domain of senses is limited, so the ambiguity, if exists, presents a very shafted probability distribution, so the error margin that we introduce is low enough to get acceptable results.
+
+This approach assumes that there is frequency information available for each of the surface forms which the system knows about. There are some sources that can be used to this end:
+
+\begin{itemize}
+\item Statistical models of the used language: Given the language in which the text has been written, we can use linguistic studies to determine the probability of each possible sense for each of the surface forms. However, this data is generic and may not be fully representative of the application environment, e.g. when working in a restricted domain where the most specialized senses (and probably the more adequate ones) gets low prior probability values in a linguistic model.
+
+Using this models could also require some adaptation to the knowledge base, as they may include surface forms and entities that do not exist in the knowledge base. This is specially true if we have to work with normalized prior probability values.
+
+\item Statistical models of a selected document corpus: We can build a corpus of relevant documents for a better adaptation to the domain of our interest. However, a good enough collection of documents should be large to be reliable, so it requires a higher effort than just using some existing statistical models. Also, we would need to build a new corpus if we change or extend the domain of the problem.
+
+\item Alternative frequency measures: We can make use of other measures to acknowledge the prominence of each entity, like the number of results in search engines. It provides updated information in a very broad domain; however, it is not very reliable as some entities that are prevalent in time might gather a higher number of references that do not accurately represent its real significance. On the other hand, some entities could benefit from a great impact in a short time frame, getting a lot of references although its relevance in the long term would not be great.
+
+\item Wikilinks\footnote{As explained in \autoref{sec:knowledgeBases}, wikilinks are hyperlinks that link pairs of Wikipedia documents with a directed relation. When an entity is mentioned in another entity's article, that mention is annotated with a link to former entity's article.}: This is one of the most used methods, as it is both reliable and accurate. Information within Wikipedia can be considered canonical and truly representative of the reality, as it is continuously updated and revised by a collective of redactors.
+
+The prominence measure is the number of wikilinks that point to the entity's article, assuming that the more linked an entity is, the more prominent it is in the domain depicted by the whole Wikipedia. It also let us limit the domain of the process by using the category hierarchy of Wikipedia.
+\end{itemize}
+
+\paragraph{Local Methods}
+
+As pointed before, prominence-based methods always have an error percentage that can not be avoided by any means. Local methods exploits a new and powerful resource: the context of the mention. We can assume that every time we mention a certain entity, it should take place in a similar context. For example, the context of \emph{Born to Run} should always address some music-related topic. It would be strange if we find a mention to \emph{Born to Run} in a text related to Michelangelo or the Renaissance.
+
+The idea behind this approach is to determine which of the candidate entities for a given mention is the most adequate by analysing its context. To this end, we need to describe each entity in our knowledge base with some contextual information. This information can adopt many forms, but we will address it below. This way, we can compare the contextual information of each candidate entity with the context of the mention we want to disambiguate, annotating it with the entity whose context is best represented in the surrounding context of the mention.
+
+We may understand contextual information in two ways:
+
+\begin{itemize}
+\item Plain text: The registered context is one or more representative texts where the entity is mentioned. This way, the information can be noisy and it would need to be refined (e.g. stopwords removed) to make the process more accurate and efficient. Wikipedia articles are a good resource to use to this end, as they also contain surface forms corresponding to other entities that are semantically related, providing a rich context in a semantic manner.
+\item Keywords: The context consists in a set of words or phrases that are commonly used together with the surface forms of the entity. The sources of this keywords are diverse: most common words (apart from the surface form itself) in a corpus of documents that addresses the entity, lists of semantic tags (e.g. Wikipedia category names), etcetera.
+\end{itemize}
+
+Contextual information can be represented in multiple forms that may determine the way it should be compared. The most simple representation is as mere text strings, but most proposals use a vectorial representation of the context. This way, texts are represented as vectors in which each word is a new dimension, so the text is already tokenized and reduced to its fundamental components. This makes easier to compare between contexts by determining the overlapping between vectors, as we already know which components must be considered in this process, instead of having a bunch of words all together.
+
+This methods provide better results that the prominence-based ones, as it takes into account the nature of the text in which the mention has appeared. By contrast, the methods that only use the prominence as decision factor are totally independent of the particular text. However, this approach is not enough when facing texts that lack context, e.g. microposts, or in which the context may not have enough quality. It also finds very difficult disambiguating entities that are tangential to the predominant topics of the text: many systems that only rely on this methods would struggle to correctly annotate a mention to the 1965 Bob Dylan's album, \emph{Highway 61 Revisited}, in a text about the history of this famous North-American road, although it is a feasible mention to be found in that context.
+
+\paragraph{Collective Methods}
+
+{\color{red} ¿Cambiar por \emph{Global}? Así se les llama en algunos trabajos (ver PBOH) y puede ser más coherente.}
+
+We have seen that using only the contextual information in the input text may not be enough to obtain adequate results. This motivates the need of this new approach, that tries to exploit the semantics behind the entities to support the process of disambiguation of ambiguous mentions.
+
+As long as entities are representations of elements of reality, we should be able to stablish relations between them; e.g. every album has been created by an artist, who was born in a city located in a certain country, in which a lot of other significant people was born, and so on. There are many \emph{semantic relations} between entities that can be identified and registered in our knowledge base so we can use it for our benefit.
+
+To this end, it is specially useful a specific model for representing the information: a graph, which we will call \emph{candidate graph}. In this kind of graph, entities would be represented as nodes or vertices, and the relations between them as edges. The strength of the relations can be modelled as a weight for each of the edges, letting us to recognize which relations are stronger than others when having to decide between two candidate entities.
+
+This approach introduces two ways of resolving the ambiguity in a NERD process:
+
+\begin{itemize}
+\item Sequential: The ambiguity of the mentions in the input text is solved in a sequential way, although for every mention we look at the candidates of the rest of the ambiguous mentions or even those that are not ambiguous. This way, we can use the unambiguous mentions to determine the best of the candidate entities for each of the ambiguous mentions. The already disambiguated ones could be also used to process the following mentions that present some ambiguity, but it would favour the importance of the first mentions in the text. However, this may be appropriate in some scenarios, like the automatic annotation of news articles.
+\item Joint: Another approach is to try to disambiguate all the ambiguous mentions in only one step. This kind of operation is usually very complex, and it requires the use of approximations to be accomplished in a reasonable time. The main objective in this case is discovering which of the possible combination of annotations maximizes the semantic coherence between them. However, when the number of mentions or the ambiguity degree in a text is high, the complexity of the problem could become impossible to handle.
+\end{itemize}
+
+{\color{red} Hablar de la fórmula de semejanza de Milne y Witten, ampliamente utilizada en el estado del arte. Referenciar \autoref{sec:techniques:semantic}.}
+
+\subsection{Data Models.}
+
+\paragraph{Bag of Words}
+
+The simplest representation of a relevant part of the information that is necessary for the disambiguation process is the \emph{bag of words}. Proposals that follows this model represent the surface forms, candidate entities and contextual information as arrays or vectors of words.
+
+This is an easy to implement method to store the information, but it lacks usability in many aspects. First, its relation capacity is very limited: in general, we will have a set of entities, where each of them has attached a vector of surface forms. What we save in terms of data representation, it is needed to be done in terms of linking and giving consistence to all the information that has to be managed during the NERD process. It also fails in weighting correctly the influence of the different elements used in the process, as it needs additional structures to include that kind of information into the pipeline.
+
+{\color{red} Hablar de la fórmula de semejanza del coseno como método habitual de cálculo de la semejanza entre dos textos. Referenciar \autoref{sec:techniques:context}.}
+
+\paragraph{Graphs}
+
+The most frequent procedure is as follows: after we model the information in our knowledge base as a (ideally) weighted graph, we extract the sub-graph that includes all the entities that have been identified as candidate entities for any mention in the input text. Based the hypothesis of that, in a text, the predominant topic is coherent and all mentions in the text should relate to that topic, the correct entities in the candidate set should show a high degree of semantic relatedness. Our main objective should be, then, finding the sub-set of candidates that offer the highest total weight.
+
+We face many challenges here:
+
+\begin{itemize}
+	\item How to calculate the weights: First, we need to define how the semantic relatedness will be measured. A very used approach is the proposed in \cite{witten2008}: it calculates the semantic similarity between two entities by evaluating the overlapping in the wikilinks in their respective Wikipedia articles. The more links are shared by both articles, the more similar will be their corresponding entities. This measure takes into account both the incident wikilinks (links from other articles) and the references to other articles.
+	
+	We can define a more complex model in which aspects like distance between nodes have to be taken into account. This would let us to define new weights that could serve to better catch the semantics in a text by including some subtle relations that are not contemplated in a model in which only the directly related nodes are considered.
+	
+	\item Size of the candidate graph: In general, we might consider that, given that every text has to be topically coherent, every entity should be connected to at least one other entity. However, this is not always true: in many cases, there are some entities that remain isolated in the candidate graph, as they can not be directly related with any other entity in the graph.
+	
+	To solve this, we can expand the candidate graph to catch subtler relations. For example, we can not only consider candidate nodes, but the adjacent nodes too. Of course, these nodes will not be considered as candidates for annotating the mentions in the input text, but they would be used to calculate the weights of the relations between entities.
+	
+	However, this can lead to the construction of huge graphs that can not be handled without introducing approximations or using an outstanding hardware to complete the NERD process in an acceptable lapse of time. 
+	
+	\item Algorithm: As it was pointed before, in some cases the generated graph can not be processed in a straight manner, e.g. computing the weights of every resulting combination, as the number of combinations or the complexity of the calculus is just unmanageable in a finite time.
+	
+	In this cases it is needed to use approximations that belong to graph theory, like Random Walks or Random Trees. We will talk about them later in \autoref{sec:edSystems}.
+\end{itemize}
+
+Taking advantage of the use of graphical models, we can extend it to other parts of the problem; in particular, to model the mentions and the candidate entities that correspond to each one of them. This model was initially proposed in \cite{yosef2011}. We can see a small example in \autoref{fig:fullGraphExample}.
+
+\begin{figure}[!ht]
+	\centering
+	
+	\includegraphics[width=.3\textwidth]{tbd}
+	\caption{Full graph example.}
+	\label{fig:fullGraphExample}
+\end{figure}
+
+\subsection{Candidate Entity Score Calculation.}
+\label{sec:scoreCalculation}
+
+\paragraph{Mathematical Models.}~
+
+Proposals that adopt this kind of approach rely on mathematical expressions to weigh the likeness of each candidate to be the optimal annotation, that is, to score it. A well constructed formula should lead to the most adequate candidate entity getting the highest value.
+
+These formulae are constructed by attending to many measurable parameters for each mention-candidate entity pair. The nature of these factors is varied, but can be summarized in three categories: prominence of the candidate, similarity between a mention and its candidate entities, and semantic coherence between candidate entities. We will delve into this classification later in \autoref{sec:techniques}.
+
+The calculated score can be also used to fine tuning the system. It is possible to impose a minimum distance between the highest ranked candidates to accept the results as valid. For instance, the highest ranked candidate is used as the correct annotation only if it gets a certain amount above the second ranked candidate, i.e. there is a certain degree of confidence in the ranking result. It can also be useful to remove all the candidates that get a score that is below a predefined value, so the non-relevant candidates are not introduced in a subsequent disambiguation step. This is particularly interesting in graphical models, as every candidate that is considered increases the size of the graph, thus increasing the complexity of the disambiguation problem.
+
+\paragraph{Machine Learning.}~
+
+As pointed in \cite{rizzo2011nerd}, machine learning has been introduced in NERD with great success -- since its first systems, there has been a niche of machine learning-oriented proposals, being \cite{milne2008} the first example of this fact. These techniques let a system to be \emph{trained} to recognize, disambiguate or perform both tasks by learning related examples. These can be both correct annotations --positive examples-- or incorrect annotations --negative examples--, although it may be defined by the author or the implemented learning algorithms.
+
+\cite{nadeau2007survey} describe the three common approaches to machine learning:
+
+\smallskip
+
+\hfill
+\begin{minipage}{.98\textwidth}
+	
+\paragraph{Supervised Methods.}
+
+These require an initial corpus of labeled documents, which will provide with examples that will be used by the system as a reference for the decision making. This corpus should be both large and complete, so it provides enough valuable examples to support the annotation generation in diverse scenarios, e.g. different mentions and contexts for the same entity. Some of the most common learning algorithms are briefly depicted in \autoref{sec:techniques:ml}.
+
+These methods present some downsides. First, they may be expensive, as they usually must be manually constructed to provide a solid ground and a high confidence about the information that it contains. However, this fact can be overcome by using an already existent resource to train a system, like Wikipedia \cite{milne2008}. Second, the scope of the training set highly determines the performance of a system, so the quality exigence implies using a carefully designed document corpus. This is particularly relevant when facing restrictive environments with very limited domains, where specialized knowledge may be needed and there may not be enough documents to build an adequate corpus.
+
+\paragraph{Semi-supervised Methods.}
+
+These methods try to overcome the drawbacks of pure supervised methods while keeping their reliability. Semi-supervised approaches only need a small training set, which will be supported by additional information and further expanded by including unlabeled documents. Labeled documents act as the seed for the learning process, which includes the automatic labelling of the unlabeled data to be used as examples by the system. These methods are particularly effective in specialized environments, as they often have very concrete mentions and entities.
+
+\paragraph{Unsupervised Methods.}
+
+These methods rely on the capacity of a system to discover implicit patterns and structures in a corpus of unlabeled documents. By analysing an input set of documents, a machine learning system should be able to infer some rules to help in its decision making.
+
+\end{minipage}
+
+
+
+\subsection{Language Treatment.}
+
+As pointed before, NERD process is very language-dependant. This factor can influence, or even determine, how the process have to be implemented, e.g. which algorithms can be applied, which operations should be done...
+
+In consequence, language is something that can not be unseen when designing and implementing a NERD system. There are three possible ways in which this factor can be faced:
+
+\paragraph{Monolingual.}
+
+In general, a NERD system is designed for one language in particular, so it should only provide good results when processing texts in that language. To be able to satisfactorily process texts in other languages, the system itself must change to adapt to the idiosyncrasy of that language. 
+
+That is the reason behind the modular architecture that most of the  NERD systems tend to adopt recently. This way, we can use one or another module depending on the language that must be computed. However, it forces us to implement a new module for each new language that must be recognized by our system.
+
+\paragraph{Multilingual.}
+
+Given that some languages present many similar characteristics, it should be possible to design and implement a tool that could face many languages instead of only one. In this group we would include those systems that are able to detect the language of the input text and automatically process it with the corresponding module (e.g. AGDISTIS \cite{gerbil2015}), even if there are separate modules for each of the compatible languages.
+
+In general, this only applies for the first stages of the process: we can gather many pre-processing operations that are common to a handful of languages. This principle can also work for mention detection by using techniques as capitalization analysis and so on. It does not propagate to further steps, though: both recognition and disambiguation are specific for each language, and these operations need to count on language specific information to be accomplished.
+
+\paragraph{Cross-lingual.}
+
+A novel approach is to try to build a generic system that can process any text in almost any language. A system of this kind would rely on a huge and well-formed knowledge base that owns information of each entity in every compatible language. This approach is motivated by the apparition of rich multilingual knowledge bases, e.g. DBpedia or Wikidata, that provide a solid foundation for the NERD process. This way, there is only one pipeline that is applied to every input text. The only difference will be the information used for recognizing and disambiguating the mentions in it. 
+
+One interesting model is the proposed in x-LiSA \cite{zhang2014}. It consists in selecting one language as ``main language'' (along with its corresponding knowledge base) and using the multilingual information as ``support knowledge bases'', one for each language. The latter would be used to recognize and gather all the candidate entities, as well as their related information (e.g. contextual and statistic information). However, the disambiguation is done using the data from the main knowledge base. The problem is that the contextual information of the entities is in a different language than the text, so some automatic translation is applied to get the context information from the input text.
+
+\subsection{Text Type.}
+
+\paragraph{Standard.}
+
+Apart from the language, the nature of the text can influence heavily on the performance of a system. Traditionally, a good example of a typical input text for the NERD pipeline are news articles. This kind of text contains many entities and counts on some contextual information. It also is well constructed -- that is, it uses proper grammatical structures, a correct punctuation criteria, etcetera. The mentions to entities are, in general, explicit and complete, at least the first time it is included in a text. It is not uncommon to find an entity that is mentioned many times along the input text, e.g. the entity ``Bruce Springsteen'' can be called as ``Bruce Springsteen'' in its first apparition, and just as ``Springsteen'' the following times it is mentioned.
+
+Some systems consider this fact in his NERD pipeline, often using this co-occurrence of many surface forms of a particular entity to increase the probability of that entity being the correct one. Others go another step beyond that and extends this search to pronouns in the text -- i.e. mentions to implicit entities, as it can provide additional information about the genre or number of the entity.
+
+However, the length of the text, thus the richness in contextual information for the disambiguation process, is the key factor that distinguishes the standard type of text from the other main kind of texts, which is explained below.
+
+Within this category we can find those texts whose length would make them unmanageable if we apply certain NERD strategies. If we use a pipeline that simultaneously uses \emph{all} the mention or entities in the input document, e.g. a Joint model or a graphical model, the number of entities is an obvious limiting factor. Given that the longer is a text, the more mentions and entities it will contain, it is needed a workaround for specially long texts that could be used as an input document, e.g. a novel or History book. Even if the scalability factor was not an issue, many proposals would suffer since it would be difficult, if not impossible, to exploit the thematic coherence hypothesis that we enunciated before due to the high number of topics that would be implied in a long text. In some cases, it just would be impossible to determine a restricted domain for the whole text.
+
+Typical strategies to tackle this kind of texts consist on dividing the book in lesser units, e.g. chapters, paragraphs, etcetera. This way, the huge input document is converted into a collection of more manageable documents that can be processed one by one, as they would fit in the concept of \emph{standard texts}, thus being processable by most of the systems in the state of the art. To the best of our knowledge, there are not any systems that are focused on processing this kind of texts, nor any theoretical approach to make it possible without a previous simplification of the input. 
+
+\paragraph{Microposts.}
+
+\emph{Microposts} are one of the latest and bigger challenges for the NERD field of study. Microposts are very short texts that may be poorly constructed. This fact puts a big obstacle to perform NERD on this kind of texts: the lack of context. \emph{Tweets}, the user publications in the Twitter social network, are the best example of microposts: shorter than 140 characters, idiosyncratic structures (\emph{hashtags}, \emph{user mentions}) and an informal style constitutes a huge challenge for traditional NERD systems.
+
+The necessity of processing this kind of texts started precisely with the boom of Twitter. Twitter is a very agile and real-time social network, in which the users can publish public messages in their timelines. The interaction with other users can take three forms, that originate some structures that are peculiar to this social network:
+
+\begin{itemize}
+\item User mentions: In general, any user can \emph{mention} any other user in a message by adding ``@username'' to it, where ``username'' is the user name of the mentioned user. This action starts a ``conversation'', that is, a chain of tweets between these two users. It can be broader if any other user is mentioned in the conversation. 
+
+This has an interesting  consequence for NERD: it originates new surface forms, as an entity can be referred to with its user name in Twitter, e.g. @BruceSpringsteen. Note that there can not be blank spaces in a user name. An alternative is cleaning the user mentions by removing the ``@'' symbol and trying to relate the result with a traditional surface form, e.g. by trying to separate the words that form the user name based in its capitalization.
+
+This kind of structure is relevant when facing named entities, as it always refers to an user of Twitter.
+
+\item Hashtags: A \emph{hashtag} is a label with the form ``\#hashtag'' that is used to tag a tweet. A tweet can contain zero, one or more hashtags. They are used to group topically similar tweets, as they usually describes the context in which the tweet is published. With regards to NERD, hashtags may give contextual information about the content of the message, so it may be useful to exploit them.
+
+In this case we face the same problem as with user names, so the solution may be the same: we remove the ``\#'' symbol and we separate the words in the hashtag based on the capitalization of its characters. An example of this may be ``\#BruceSpringsteenLiveConcert'', which would generate ``Bruce Springsteen Live Concert''. This can be useful to disambiguate a mention like ``The Boss'' in the tweet \textit{``He's really The Boss! \#BruceSpringsteenLiveConcert''}, as it provides us a better context than just the non-hashtag text.
+
+\item Retweet: A \emph{retweet} consists on publishing an another user's tweet in our own timeline. It has no effect on the NERD process beyond of getting duplicate messages in an input set of tweets.
+\end{itemize}
+
+Over the past years, Twitter has proved itself to be a very valuable source of information. Its real-time nature and the broad diffusion between both people and other real elements of interest (news media, organizations and official institutions) let us to gather reliable and constantly updated information, although it forces us to face a huge amount of noise that has to be accordingly addressed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

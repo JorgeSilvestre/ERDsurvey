@@ -1,0 +1,151 @@
+% BEGIN_FOLD - PREAMBULO
+
+\listfiles
+\documentclass[	
+				manuscript,
+				acmlarge,
+				review,
+				screen,
+				9pt
+				]{acmart}
+\citestyle{acmauthoryear}
+%\citestyle{acmnumeric}
+%\setcitestyle{super,sort&compress}
+\bibliographystyle{ACM-Reference-Format}
+
+\usepackage{booktabs} % For formal tables
+\usepackage[ruled]{algorithm2e} % For algorithms
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}
+
+% Metadata Information
+\acmJournal{CSUR}
+\acmVolume{0}
+\acmNumber{0}
+\acmArticle{0}
+\acmYear{2017}
+\acmMonth{7}
+
+%\acmBadgeL[http://ctuning.org/ae/ppopp2016.html]{ae-logo}
+\acmBadgeR[http://ctuning.org/ae/ppopp2016.html]{figs/ae-logo.pdf}
+
+% Copyright
+\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+% DOI
+\acmDOI{0000001.0000001}
+
+
+\graphicspath{{graphics/}}
+\input{meta/paquetes}
+
+% END_FOLD
+
+% Document starts
+\begin{document}
+	
+% BEGIN_FOLD - ARTICLE DATA
+% Title portion
+% \title{Theory and Practice on Recognition and Disambiguation of Named Entities} 
+\title{Theory and Practice on Named Entity Disambiguation} 
+   \titlenote{This is a titlenote}
+   \subtitle{This is a subtitle}
+   \subtitlenote{Subtitle note}
+\author{Jorge Silvestre}
+   \authornote{The corresponding author}
+   \orcid{1234-5678-9012-3456}
+   \email{jsilves91@gmail.com}
+\author{Miguel A. Mart\'inez-Prieto}
+   \email{migumar2@infor.uva.es}
+   \orcid{0000-0003-4418-561X}
+\affiliation{%
+  \institution{Universidad de Valladolid}
+  \department{Department of Computer Science}
+  \city{Segovia}
+  \country{Spain}
+}
+
+\begin{abstract}
+This is an abstract 
+\end{abstract}
+
+
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>10010520.10010553.10010562</concept_id>
+  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10010520.10010575.10010755</concept_id>
+  <concept_desc>Computer systems organization~Redundancy</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10010520.10010553.10010554</concept_id>
+  <concept_desc>Computer systems organization~Robotics</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10003033.10003083.10003095</concept_id>
+  <concept_desc>Networks~Network reliability</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+</ccs2012>  
+\end{CCSXML}
+
+%% TODO \ccsdesc[500]{Computer systems organization~Embedded systems}
+%% TODO \ccsdesc[300]{Computer systems organization~Redundancy}
+%% TODO \ccsdesc{Computer systems organization~Robotics}
+%% TODO \ccsdesc[100]{Networks~Network reliability}
+
+%
+% End generated code
+%
+
+\keywords{keyword1, keyword4, keyword3, keyword4}
+
+
+\thanks{This work is supported by...
+
+  Author's addresses: Jorge Silvestre {and} Miguel A. Mart\'inez-Prieto.
+  Escuela de Ingenier\'ia Inform\'atica, Campus Mar\'ia Zambrano, Universidad de Valladolid.
+  Segovia, Spain.}
+
+% END_FOLD
+
+\maketitle
+
+\input{sections/introduction}
+
+\input{sections/applicationsNERD}
+
+\input{sections/background}
+
+\input{sections/approximations}
+
+\input{sections/techniques}
+
+\input{sections/systems}
+
+\input{sections/evaluation}
+
+\input{sections/benchmark}
+
+\input{sections/conclusions}
+
+%% \input{samplebody-journals}
+
+% Bibliography
+
+\bibliography{meta/bibliografia,meta/bibTools}
+
+\end{document}

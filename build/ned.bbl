@@ -1,0 +1,864 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Bollacker, Evans, Paritosh, Sturge, and
+  Taylor}{Bollacker et~al\mbox{.}}{2008}]%
+        {bollacker2008}
+\bibfield{author}{\bibinfo{person}{Kurt Bollacker}, \bibinfo{person}{Colin
+  Evans}, \bibinfo{person}{Praveen Paritosh}, \bibinfo{person}{Tim Sturge},
+  {and} \bibinfo{person}{Jamie Taylor}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Freebase: a collaboratively created graph database
+  for structuring human knowledge}. In \bibinfo{booktitle}{{\em Proceedings of
+  the 2008 ACM SIGMOD international conference on Management of data}}. AcM,
+  \bibinfo{pages}{1247--1250}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bollacker, Tufts, Pierce, and Cook}{Bollacker
+  et~al\mbox{.}}{2007}]%
+        {bollacker2007}
+\bibfield{author}{\bibinfo{person}{Kurt Bollacker}, \bibinfo{person}{Patrick
+  Tufts}, \bibinfo{person}{Tomi Pierce}, {and} \bibinfo{person}{Robert Cook}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{A platform for scalable, collaborative, structured
+  information integration}. In \bibinfo{booktitle}{{\em Intl. Workshop on
+  Information Integration on the Web (IIWeb’07)}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bontcheva, Derczynski, Funk, Greenwood,
+  Maynard, and Aswani}{Bontcheva et~al\mbox{.}}{2013}]%
+        {bontcheva2013}
+\bibfield{author}{\bibinfo{person}{Kalina Bontcheva}, \bibinfo{person}{Leon
+  Derczynski}, \bibinfo{person}{Adam Funk}, \bibinfo{person}{Mark~A Greenwood},
+  \bibinfo{person}{Diana Maynard}, {and} \bibinfo{person}{Niraj Aswani}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{TwitIE: An Open-Source Information Extraction
+  Pipeline for Microblog Text.}. In \bibinfo{booktitle}{{\em RANLP}}.
+  \bibinfo{pages}{83--90}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bunescu and Pasca}{Bunescu and Pasca}{2006}]%
+        {bunescu2006}
+\bibfield{author}{\bibinfo{person}{Razvan~C. Bunescu} {and}
+  \bibinfo{person}{Marius Pasca}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Using Encyclopedic Knowledge for Named entity
+  Disambiguation}. In \bibinfo{booktitle}{{\em {EACL}}},
+  Vol.~\bibinfo{volume}{6}. \bibinfo{publisher}{The Association for Computer
+  Linguistics}, \bibinfo{pages}{9--16}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Caliano, Fersini, Manchanda, Palmonari, and
+  Messina}{Caliano et~al\mbox{.}}{2016}]%
+        {caliano2016}
+\bibfield{author}{\bibinfo{person}{Davide Caliano}, \bibinfo{person}{Elisabetta
+  Fersini}, \bibinfo{person}{Pikakshi Manchanda}, \bibinfo{person}{Matteo
+  Palmonari}, {and} \bibinfo{person}{Enza Messina}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{UniMiB: Entity Linking in Tweets using Jaro-Winkler
+  Distance, Popularity and Coherence.}. In \bibinfo{booktitle}{{\em \#
+  Microposts}}. \bibinfo{pages}{70--72}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chang, Hsu, Ma, Loynd, and Wang}{Chang
+  et~al\mbox{.}}{2014}]%
+        {chang2014}
+\bibfield{author}{\bibinfo{person}{Ming-Wei Chang}, \bibinfo{person}{Bo-June
+  Hsu}, \bibinfo{person}{Hao Ma}, \bibinfo{person}{Ricky Loynd}, {and}
+  \bibinfo{person}{Kuansan Wang}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{E2E: An end-to-end entity linking system for short
+  and noisy text}.
+\newblock \bibinfo{journal}{{\em Making Sense of Microposts\/}}
+  (\bibinfo{year}{2014}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Cucerzan}{Cucerzan}{2007}]%
+        {cucerzan2007}
+\bibfield{author}{\bibinfo{person}{Silviu Cucerzan}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Large-scale named entity disambiguation based on
+  Wikipedia data}. In \bibinfo{booktitle}{{\em EMNLP-CoNLL 2007, Proceedings of
+  the 2007 Joint Conference on Empirical Methods in Natural Language Processing
+  and Computational Natural Language Learning, June 28-30, 2007, Prague, Czech
+  Republic}}. \bibinfo{pages}{708--716}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Daiber, Jakob, Hokamp, and Mendes}{Daiber
+  et~al\mbox{.}}{2013}]%
+        {daiber2013}
+\bibfield{author}{\bibinfo{person}{Joachim Daiber}, \bibinfo{person}{Max
+  Jakob}, \bibinfo{person}{Chris Hokamp}, {and} \bibinfo{person}{Pablo~N
+  Mendes}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Improving efficiency and accuracy in multilingual
+  entity extraction}. In \bibinfo{booktitle}{{\em Proceedings of the 9th
+  International Conference on Semantic Systems}}. ACM,
+  \bibinfo{pages}{121--124}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Durrett and Klein}{Durrett and Klein}{2014}]%
+        {durrett2014}
+\bibfield{author}{\bibinfo{person}{Greg Durrett} {and} \bibinfo{person}{Dan
+  Klein}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{A joint model for entity analysis: Coreference,
+  typing, and linking}.
+\newblock \bibinfo{journal}{{\em Transactions of the Association for
+  Computational Linguistics\/}}  \bibinfo{volume}{2} (\bibinfo{year}{2014}),
+  \bibinfo{pages}{477--490}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Eckhardt, Hre{\v{s}}ko, Proch{\'a}zka, and
+  Smrf}{Eckhardt et~al\mbox{.}}{2014}]%
+        {eckhardt2014}
+\bibfield{author}{\bibinfo{person}{Alan Eckhardt}, \bibinfo{person}{Juraj
+  Hre{\v{s}}ko}, \bibinfo{person}{Jan Proch{\'a}zka}, {and}
+  \bibinfo{person}{Otakar Smrf}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Entity linking based on the co-occurrence graph and
+  entity probability}. In \bibinfo{booktitle}{{\em Proceedings of the first
+  international workshop on Entity recognition \& disambiguation}}. ACM,
+  \bibinfo{pages}{37--44}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Fader, Soderland, Etzioni, and Center}{Fader
+  et~al\mbox{.}}{2009}]%
+        {fader2009}
+\bibfield{author}{\bibinfo{person}{Anthony Fader}, \bibinfo{person}{Stephen
+  Soderland}, \bibinfo{person}{Oren Etzioni}, {and} \bibinfo{person}{Turing
+  Center}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{Scaling Wikipedia-based named entity disambiguation
+  to arbitrary web text}. In \bibinfo{booktitle}{{\em Proceedings of the IJCAI
+  Workshop on User-contributed Knowledge and Artificial Intelligence: An
+  Evolving Synergy, Pasadena, CA, USA}}. \bibinfo{pages}{21--26}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ferragina and Scaiella}{Ferragina and
+  Scaiella}{2010}]%
+        {ferragina2010}
+\bibfield{author}{\bibinfo{person}{Paolo Ferragina} {and} \bibinfo{person}{Ugo
+  Scaiella}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Tagme: on-the-fly annotation of short text
+  fragments (by wikipedia entities)}. In \bibinfo{booktitle}{{\em Proceedings
+  of the 19th ACM international conference on Information and knowledge
+  management}}. ACM, \bibinfo{pages}{1625--1628}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ferragina and Scaiella}{Ferragina and
+  Scaiella}{2012}]%
+        {ferragina2012}
+\bibfield{author}{\bibinfo{person}{Paolo Ferragina} {and} \bibinfo{person}{Ugo
+  Scaiella}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Fast and accurate annotation of short texts with
+  wikipedia pages}.
+\newblock \bibinfo{journal}{{\em IEEE software\/}} \bibinfo{volume}{29},
+  \bibinfo{number}{1} (\bibinfo{year}{2012}), \bibinfo{pages}{70--75}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ganea, Ganea, Lucchi, Eickhoff, and
+  Hofmann}{Ganea et~al\mbox{.}}{2016}]%
+        {ganea2016}
+\bibfield{author}{\bibinfo{person}{Octavian-Eugen Ganea},
+  \bibinfo{person}{Marina Ganea}, \bibinfo{person}{Aurelien Lucchi},
+  \bibinfo{person}{Carsten Eickhoff}, {and} \bibinfo{person}{Thomas Hofmann}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Probabilistic bag-of-hyperlinks model for entity
+  linking}. In \bibinfo{booktitle}{{\em Proceedings of the 25th International
+  Conference on World Wide Web}}. International World Wide Web Conferences
+  Steering Committee, \bibinfo{pages}{927--938}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ganea and Hofmann}{Ganea and Hofmann}{2017}]%
+        {ganea2017}
+\bibfield{author}{\bibinfo{person}{Octavian-Eugen Ganea} {and}
+  \bibinfo{person}{Thomas Hofmann}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Deep Joint Entity Disambiguation with Local Neural
+  Attention}.
+\newblock \bibinfo{journal}{{\em arXiv preprint arXiv:1704.04920\/}}
+  (\bibinfo{year}{2017}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Greenfield, Caceres, Coury, Geyer, Gwon,
+  Matterer, Mensch, Sahin, and Simek}{Greenfield et~al\mbox{.}}{2016}]%
+        {greenfield2016}
+\bibfield{author}{\bibinfo{person}{Kara Greenfield},
+  \bibinfo{person}{Rajmonda~S Caceres}, \bibinfo{person}{Michael Coury},
+  \bibinfo{person}{Kelly Geyer}, \bibinfo{person}{Youngjune Gwon},
+  \bibinfo{person}{Jason Matterer}, \bibinfo{person}{Alyssa Mensch},
+  \bibinfo{person}{Cem~Safak Sahin}, {and} \bibinfo{person}{Olga Simek}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{A Reverse Approach to Named Entity Extraction and
+  Linking in Microposts.}. In \bibinfo{booktitle}{{\em \# Microposts}}.
+  \bibinfo{pages}{67--69}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hachey, Radford, and Curran}{Hachey
+  et~al\mbox{.}}{2011}]%
+        {hachey2011}
+\bibfield{author}{\bibinfo{person}{Ben Hachey}, \bibinfo{person}{Will Radford},
+  {and} \bibinfo{person}{James~R Curran}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Graph-Based Named Entity Linking with Wikipedia.}.
+  In \bibinfo{booktitle}{{\em WISE}}. Springer, \bibinfo{pages}{213--226}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hakimov, Horst, Jebbara, Hartung, and
+  Cimiano}{Hakimov et~al\mbox{.}}{2016}]%
+        {hakimov2016}
+\bibfield{author}{\bibinfo{person}{Sherzod Hakimov},
+  \bibinfo{person}{Hendrik~ter Horst}, \bibinfo{person}{Soufian Jebbara},
+  \bibinfo{person}{Matthias Hartung}, {and} \bibinfo{person}{Philipp Cimiano}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Combining textual and graph-based features for
+  named entity disambiguation using undirected probabilistic graphical models}.
+  In \bibinfo{booktitle}{{\em Knowledge Engineering and Knowledge Management:
+  20th International Conference, EKAW 2016, Bologna, Italy, November 19-23,
+  2016, Proceedings 20}}. Springer, \bibinfo{pages}{288--302}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hakimov, Oto, and Dogdu}{Hakimov
+  et~al\mbox{.}}{2012}]%
+        {hakimov2012}
+\bibfield{author}{\bibinfo{person}{Sherzod Hakimov},
+  \bibinfo{person}{Salih~Atilay Oto}, {and} \bibinfo{person}{Erdogan Dogdu}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Named entity recognition and disambiguation using
+  linked data and graph-based centrality scoring}. In \bibinfo{booktitle}{{\em
+  Proceedings of the 4th international workshop on semantic web information
+  management}}. ACM, \bibinfo{pages}{4}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Han and Sun}{Han and Sun}{2011}]%
+        {han2011generative}
+\bibfield{author}{\bibinfo{person}{Xianpei Han} {and} \bibinfo{person}{Le
+  Sun}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{A generative entity-mention model for linking
+  entities with knowledge base}. In \bibinfo{booktitle}{{\em Proceedings of the
+  49th Annual Meeting of the Association for Computational Linguistics: Human
+  Language Technologies-Volume 1}}. Association for Computational Linguistics,
+  \bibinfo{pages}{945--954}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Han, Sun, and Zhao}{Han et~al\mbox{.}}{2011}]%
+        {han2011}
+\bibfield{author}{\bibinfo{person}{Xianpei Han}, \bibinfo{person}{Le Sun},
+  {and} \bibinfo{person}{Jun Zhao}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Collective entity linking in web text: a
+  graph-based method}. In \bibinfo{booktitle}{{\em Proceedings of the 34th
+  international ACM SIGIR conference on Research and development in Information
+  Retrieval}}. ACM, \bibinfo{pages}{765--774}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hoffart}{Hoffart}{2015}]%
+        {hoffart2015}
+\bibfield{author}{\bibinfo{person}{Johannes Hoffart}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock {\em \bibinfo{title}{Discovering and disambiguating named entities in
+  text}}.
+\newblock \bibinfo{thesistype}{Ph.D. Dissertation}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hoffart, Suchanek, Berberich, and
+  Weikum}{Hoffart et~al\mbox{.}}{2013}]%
+        {yago2013}
+\bibfield{author}{\bibinfo{person}{Johannes Hoffart},
+  \bibinfo{person}{Fabian~M. Suchanek}, \bibinfo{person}{Klaus Berberich},
+  {and} \bibinfo{person}{Gerhard Weikum}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{{YAGO2:} {A} spatially and temporally enhanced
+  knowledge base from Wikipedia}.
+\newblock \bibinfo{journal}{{\em Artificial Intelligence\/}}
+  \bibinfo{volume}{194} (\bibinfo{year}{2013}), \bibinfo{pages}{28--61}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hoffart, Yosef, Bordino, F{\"u}rstenau,
+  Pinkal, Spaniol, Taneva, Thater, and Weikum}{Hoffart et~al\mbox{.}}{2011}]%
+        {hoffart2011}
+\bibfield{author}{\bibinfo{person}{Johannes Hoffart},
+  \bibinfo{person}{Mohamed~Amir Yosef}, \bibinfo{person}{Ilaria Bordino},
+  \bibinfo{person}{Hagen F{\"u}rstenau}, \bibinfo{person}{Manfred Pinkal},
+  \bibinfo{person}{Marc Spaniol}, \bibinfo{person}{Bilyana Taneva},
+  \bibinfo{person}{Stefan Thater}, {and} \bibinfo{person}{Gerhard Weikum}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Robust disambiguation of named entities in text}.
+  In \bibinfo{booktitle}{{\em Proceedings of the Conference on Empirical
+  Methods in Natural Language Processing}}. Association for Computational
+  Linguistics, \bibinfo{pages}{782--792}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hulpus, Hayes, Karnstedt, and Greene}{Hulpus
+  et~al\mbox{.}}{2012}]%
+        {hulpus2012}
+\bibfield{author}{\bibinfo{person}{Ioana Hulpus}, \bibinfo{person}{Conor
+  Hayes}, \bibinfo{person}{Marcel Karnstedt}, {and} \bibinfo{person}{Derek
+  Greene}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{An Eigenvalue-Based Measure for Word-Sense
+  Disambiguation.}. In \bibinfo{booktitle}{{\em FLAIRS Conference}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hulpu{\c{s}}, Hayes, Karnstedt, Greene, and
+  Jozwowicz}{Hulpu{\c{s}} et~al\mbox{.}}{2013}]%
+        {hulpus2013}
+\bibfield{author}{\bibinfo{person}{Ioana Hulpu{\c{s}}}, \bibinfo{person}{Conor
+  Hayes}, \bibinfo{person}{Marcel Karnstedt}, \bibinfo{person}{Derek Greene},
+  {and} \bibinfo{person}{Marek Jozwowicz}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Kanopy: Analysing the semantic network around
+  document topics}. In \bibinfo{booktitle}{{\em Joint European Conference on
+  Machine Learning and Knowledge Discovery in Databases}}. Springer,
+  \bibinfo{pages}{677--680}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kleinberg}{Kleinberg}{1999}]%
+        {kleinberg1999}
+\bibfield{author}{\bibinfo{person}{Jon~M Kleinberg}.}
+  \bibinfo{year}{1999}\natexlab{}.
+\newblock \showarticletitle{Hubs, authorities, and communities}.
+\newblock \bibinfo{journal}{{\em ACM computing surveys (CSUR)\/}}
+  \bibinfo{volume}{31}, \bibinfo{number}{4es} (\bibinfo{year}{1999}),
+  \bibinfo{pages}{5}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kschischang, Frey, and Loeliger}{Kschischang
+  et~al\mbox{.}}{2001}]%
+        {kschischang2001factorgraphs}
+\bibfield{author}{\bibinfo{person}{Frank~R Kschischang},
+  \bibinfo{person}{Brendan~J Frey}, {and} \bibinfo{person}{H-A Loeliger}.}
+  \bibinfo{year}{2001}\natexlab{}.
+\newblock \showarticletitle{Factor graphs and the sum-product algorithm}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on information theory\/}}
+  \bibinfo{volume}{47}, \bibinfo{number}{2} (\bibinfo{year}{2001}),
+  \bibinfo{pages}{498--519}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kulkarni, Singh, Ramakrishnan, and
+  Chakrabarti}{Kulkarni et~al\mbox{.}}{2009}]%
+        {kulkarni2009}
+\bibfield{author}{\bibinfo{person}{Sayali Kulkarni}, \bibinfo{person}{Amit
+  Singh}, \bibinfo{person}{Ganesh Ramakrishnan}, {and} \bibinfo{person}{Soumen
+  Chakrabarti}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{Collective annotation of Wikipedia entities in web
+  text}. In \bibinfo{booktitle}{{\em Proceedings of the 15th ACM SIGKDD
+  international conference on Knowledge discovery and data mining}}. ACM,
+  \bibinfo{pages}{457--466}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Liu, Li, Wu, Zhou, Wei, and Lu}{Liu
+  et~al\mbox{.}}{2013}]%
+        {liu2013}
+\bibfield{author}{\bibinfo{person}{Xiaohua Liu}, \bibinfo{person}{Yitong Li},
+  \bibinfo{person}{Haocheng Wu}, \bibinfo{person}{Ming Zhou},
+  \bibinfo{person}{Furu Wei}, {and} \bibinfo{person}{Yi Lu}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Entity Linking for Tweets.}. In
+  \bibinfo{booktitle}{{\em ACL (1)}}. \bibinfo{pages}{1304--1311}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Luo, Huang, Lin, and Nie}{Luo
+  et~al\mbox{.}}{2015}]%
+        {luo2015}
+\bibfield{author}{\bibinfo{person}{Gang Luo}, \bibinfo{person}{Xiaojiang
+  Huang}, \bibinfo{person}{Chin-Yew Lin}, {and} \bibinfo{person}{Zaiqing Nie}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Joint named entity recognition and disambiguation}.
+  In \bibinfo{booktitle}{{\em Proc. EMNLP}}. \bibinfo{pages}{879--880}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{M.~Suchanek, Kasneci, and Weikum}{M.~Suchanek
+  et~al\mbox{.}}{2007}]%
+        {yago2007}
+\bibfield{author}{\bibinfo{person}{Fabian M.~Suchanek},
+  \bibinfo{person}{Gjergji Kasneci}, {and} \bibinfo{person}{Gerhard Weikum}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Yago: a core of semantic knowledge unifying WordNet
+  and Wikipedia}. In \bibinfo{booktitle}{{\em {WWW}}}.
+  \bibinfo{publisher}{{ACM}}, \bibinfo{pages}{697--706}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Mahdisoltani, Biega, and
+  Suchanek}{Mahdisoltani et~al\mbox{.}}{2015}]%
+        {yago2015}
+\bibfield{author}{\bibinfo{person}{Farzaneh Mahdisoltani},
+  \bibinfo{person}{Joanna Biega}, {and} \bibinfo{person}{Fabian~M. Suchanek}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{{YAGO3:} {A} Knowledge Base from Multilingual
+  Wikipedias}. In \bibinfo{booktitle}{{\em {CIDR}}}.
+  \bibinfo{publisher}{www.cidrdb.org}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Meij, Weerkamp, and De~Rijke}{Meij
+  et~al\mbox{.}}{2012}]%
+        {meij2012}
+\bibfield{author}{\bibinfo{person}{Edgar Meij}, \bibinfo{person}{Wouter
+  Weerkamp}, {and} \bibinfo{person}{Maarten De~Rijke}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Adding semantics to microblog posts}. In
+  \bibinfo{booktitle}{{\em Proceedings of the fifth ACM international
+  conference on Web search and data mining}}. ACM, \bibinfo{pages}{563--572}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Mendes, Jakob, Garc{\'\i}a-Silva, and
+  Bizer}{Mendes et~al\mbox{.}}{2011}]%
+        {mendes2011}
+\bibfield{author}{\bibinfo{person}{Pablo~N Mendes}, \bibinfo{person}{Max
+  Jakob}, \bibinfo{person}{Andr{\'e}s Garc{\'\i}a-Silva}, {and}
+  \bibinfo{person}{Christian Bizer}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{DBpedia spotlight: shedding light on the web of
+  documents}. In \bibinfo{booktitle}{{\em Proceedings of the 7th international
+  conference on semantic systems}}. ACM, \bibinfo{pages}{1--8}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Mihalcea and Csomai}{Mihalcea and
+  Csomai}{2007}]%
+        {mihalcea2007}
+\bibfield{author}{\bibinfo{person}{Rada Mihalcea} {and} \bibinfo{person}{Andras
+  Csomai}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Wikify!: linking documents to encyclopedic
+  knowledge}. In \bibinfo{booktitle}{{\em Proceedings of the sixteenth ACM
+  conference on Conference on information and knowledge management}}. ACM,
+  \bibinfo{pages}{233--242}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Milne and Witten}{Milne and Witten}{2008}]%
+        {milne2008}
+\bibfield{author}{\bibinfo{person}{David Milne} {and} \bibinfo{person}{Ian~H
+  Witten}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Learning to link with wikipedia}. In
+  \bibinfo{booktitle}{{\em Proceedings of the 17th ACM conference on
+  Information and knowledge management}}. ACM, \bibinfo{pages}{509--518}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Nadeau and Sekine}{Nadeau and Sekine}{2007}]%
+        {nadeau2007survey}
+\bibfield{author}{\bibinfo{person}{David Nadeau} {and} \bibinfo{person}{Satoshi
+  Sekine}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{A survey of named entity recognition and
+  classification}.
+\newblock \bibinfo{journal}{{\em Lingvisticae Investigationes\/}}
+  \bibinfo{volume}{30}, \bibinfo{number}{1} (\bibinfo{year}{2007}),
+  \bibinfo{pages}{3--26}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Navigli and Ponzetto}{Navigli and
+  Ponzetto}{2010}]%
+        {navigli2010}
+\bibfield{author}{\bibinfo{person}{Roberto Navigli} {and}
+  \bibinfo{person}{Simone~Paolo Ponzetto}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{BabelNet: Building a very large multilingual
+  semantic network}. In \bibinfo{booktitle}{{\em Proceedings of the 48th annual
+  meeting of the association for computational linguistics}}. Association for
+  Computational Linguistics, \bibinfo{pages}{216--225}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Navigli and Ponzetto}{Navigli and
+  Ponzetto}{2012}]%
+        {navigli2012}
+\bibfield{author}{\bibinfo{person}{Roberto Navigli} {and}
+  \bibinfo{person}{Simone~Paolo Ponzetto}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{BabelNet: The automatic construction, evaluation
+  and application of a wide-coverage multilingual semantic network}.
+\newblock \bibinfo{journal}{{\em Artificial Intelligence\/}}
+  \bibinfo{volume}{193} (\bibinfo{year}{2012}), \bibinfo{pages}{217--250}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Nguyen, Hoffart, Theobald, and Weikum}{Nguyen
+  et~al\mbox{.}}{2014}]%
+        {nguyen2014}
+\bibfield{author}{\bibinfo{person}{Dat~Ba Nguyen}, \bibinfo{person}{Johannes
+  Hoffart}, \bibinfo{person}{Martin Theobald}, {and} \bibinfo{person}{Gerhard
+  Weikum}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{AIDA-light: High-Throughput Named-Entity
+  Disambiguation.}. In \bibinfo{booktitle}{{\em {LDOW}}} {\em
+  (\bibinfo{series}{{CEUR} Workshop Proceedings})},
+  Vol.~\bibinfo{volume}{1184}. \bibinfo{publisher}{CEUR-WS.org}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Nguyen, Theobald, and Weikum}{Nguyen
+  et~al\mbox{.}}{2016}]%
+        {nguyen2016}
+\bibfield{author}{\bibinfo{person}{Dat~Ba Nguyen}, \bibinfo{person}{Martin
+  Theobald}, {and} \bibinfo{person}{Gerhard Weikum}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{J-NERD: joint named entity recognition and
+  disambiguation with rich linguistic features}.
+\newblock \bibinfo{journal}{{\em Transactions of the Association for
+  Computational Linguistics\/}}  \bibinfo{volume}{4} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{215--229}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Perera, Mendes, Alex, Sheth, and
+  Thirunarayan}{Perera et~al\mbox{.}}{2016}]%
+        {perera2016}
+\bibfield{author}{\bibinfo{person}{Sujan Perera}, \bibinfo{person}{Pablo~N
+  Mendes}, \bibinfo{person}{Adarsh Alex}, \bibinfo{person}{Amit~P Sheth}, {and}
+  \bibinfo{person}{Krishnaprasad Thirunarayan}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Implicit entity linking in tweets}. In
+  \bibinfo{booktitle}{{\em International Semantic Web Conference}}. Springer,
+  \bibinfo{pages}{118--132}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Piccinno and Ferragina}{Piccinno and
+  Ferragina}{2014}]%
+        {piccinno2014}
+\bibfield{author}{\bibinfo{person}{Francesco Piccinno} {and}
+  \bibinfo{person}{Paolo Ferragina}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{From TagME to WAT: a new entity annotator}. In
+  \bibinfo{booktitle}{{\em Proceedings of the first international workshop on
+  Entity recognition \& disambiguation}}. ACM, \bibinfo{pages}{55--62}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Plu, Rizzo, and Troncy}{Plu
+  et~al\mbox{.}}{2015a}]%
+        {plu2015hybrid}
+\bibfield{author}{\bibinfo{person}{Julien Plu}, \bibinfo{person}{Giuseppe
+  Rizzo}, {and} \bibinfo{person}{Rapha{\"e}l Troncy}.}
+  \bibinfo{year}{2015}\natexlab{a}.
+\newblock \showarticletitle{A hybrid approach for entity recognition and
+  linking}. In \bibinfo{booktitle}{{\em Semantic Web Evaluation Challenge}}.
+  Springer, \bibinfo{pages}{28--39}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Plu, Rizzo, and Troncy}{Plu
+  et~al\mbox{.}}{2015b}]%
+        {plu2015revealing}
+\bibfield{author}{\bibinfo{person}{Julien Plu}, \bibinfo{person}{Giuseppe
+  Rizzo}, {and} \bibinfo{person}{Rapha{\"e}l Troncy}.}
+  \bibinfo{year}{2015}\natexlab{b}.
+\newblock \showarticletitle{Revealing entities from textual documents using a
+  hybrid approach}. In \bibinfo{booktitle}{{\em 3rd International Workshop on
+  NLP \& DBpedia, Bethlehem, Pennsylvania, USA}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Plu, Rizzo, and Troncy}{Plu
+  et~al\mbox{.}}{2016}]%
+        {plu2016}
+\bibfield{author}{\bibinfo{person}{Julien Plu}, \bibinfo{person}{Giuseppe
+  Rizzo}, {and} \bibinfo{person}{Rapha{\"e}l Troncy}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Enhancing entity linking by combining NER models}.
+  In \bibinfo{booktitle}{{\em Semantic Web Evaluation Challenge}}. Springer,
+  \bibinfo{pages}{17--32}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Rao, McNamee, and Dredze}{Rao
+  et~al\mbox{.}}{2013}]%
+        {rao2013}
+\bibfield{author}{\bibinfo{person}{Delip Rao}, \bibinfo{person}{Paul McNamee},
+  {and} \bibinfo{person}{Mark Dredze}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Entity linking: Finding extracted entities in a
+  knowledge base}.
+\newblock In \bibinfo{booktitle}{{\em Multi-source, multilingual information
+  extraction and summarization}}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{93--115}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Rizzo and Troncy}{Rizzo and Troncy}{2011}]%
+        {rizzo2011nerd}
+\bibfield{author}{\bibinfo{person}{Giuseppe Rizzo} {and}
+  \bibinfo{person}{Rapha{\"e}l Troncy}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Nerd: evaluating named entity recognition tools in
+  the web of data}.
+\newblock  (\bibinfo{year}{2011}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Scaiella, Barbera, Parmesan, Prestia,
+  Del~Tessandoro, and Ver{\'\i}}{Scaiella et~al\mbox{.}}{2014}]%
+        {scaiella2014}
+\bibfield{author}{\bibinfo{person}{Ugo Scaiella}, \bibinfo{person}{Michele
+  Barbera}, \bibinfo{person}{Stefano Parmesan}, \bibinfo{person}{Gaetano
+  Prestia}, \bibinfo{person}{Emilio Del~Tessandoro}, {and}
+  \bibinfo{person}{Mario Ver{\'\i}}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{DataTXT at\# Microposts2014 Challenge.}. In
+  \bibinfo{booktitle}{{\em \# MSM}}. \bibinfo{pages}{66--67}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{S{\"o}dergren and Nugues}{S{\"o}dergren and
+  Nugues}{2017}]%
+        {sodergren2017}
+\bibfield{author}{\bibinfo{person}{Anton S{\"o}dergren} {and}
+  \bibinfo{person}{Pierre Nugues}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{A multilingual entity linker using pagerank and
+  semantic graphs}. In \bibinfo{booktitle}{{\em Proceedings of the 21st Nordic
+  Conference on Computational Linguistics, NoDaLiDa, 22-24 May 2017,
+  Gothenburg, Sweden}}. Link{\"o}ping University Electronic Press,
+  \bibinfo{pages}{87--95}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Torres-Tram{\'o}n, Hromic, Walsh, Heravi, and
+  Hayes}{Torres-Tram{\'o}n et~al\mbox{.}}{2016}]%
+        {torres2016}
+\bibfield{author}{\bibinfo{person}{Pablo Torres-Tram{\'o}n},
+  \bibinfo{person}{Hugo Hromic}, \bibinfo{person}{Brian Walsh},
+  \bibinfo{person}{Bahareh~Rahmanzadeh Heravi}, {and} \bibinfo{person}{Conor
+  Hayes}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Kanopy4Tweets: Entity Extraction and Linking for
+  Twitter.}. In \bibinfo{booktitle}{{\em \# Microposts}}.
+  \bibinfo{pages}{64--66}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Usbeck, Ngomo, R{\"o}der, Gerber, Coelho,
+  Auer, and Both}{Usbeck et~al\mbox{.}}{2014a}]%
+        {usbeck2014agnostic}
+\bibfield{author}{\bibinfo{person}{Ricardo Usbeck},
+  \bibinfo{person}{Axel-Cyrille~Ngonga Ngomo}, \bibinfo{person}{Michael
+  R{\"o}der}, \bibinfo{person}{Daniel Gerber}, \bibinfo{person}{Sandro~Athaide
+  Coelho}, \bibinfo{person}{S{\"o}ren Auer}, {and} \bibinfo{person}{Andreas
+  Both}.} \bibinfo{year}{2014}\natexlab{a}.
+\newblock \showarticletitle{AGDISTIS - Agnostic disambiguation of named
+  entities using linked open data}. In \bibinfo{booktitle}{{\em Proceedings of
+  the Twenty-first European Conference on Artificial Intelligence}}. IOS Press,
+  \bibinfo{pages}{1113--1114}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Usbeck, Ngomo, R{\"o}der, Gerber, Coelho,
+  Auer, and Both}{Usbeck et~al\mbox{.}}{2014b}]%
+        {usbeck2014graph}
+\bibfield{author}{\bibinfo{person}{Ricardo Usbeck},
+  \bibinfo{person}{Axel-Cyrille~Ngonga Ngomo}, \bibinfo{person}{Michael
+  R{\"o}der}, \bibinfo{person}{Daniel Gerber}, \bibinfo{person}{Sandro~Athaide
+  Coelho}, \bibinfo{person}{S{\"o}ren Auer}, {and} \bibinfo{person}{Andreas
+  Both}.} \bibinfo{year}{2014}\natexlab{b}.
+\newblock \showarticletitle{AGDISTIS - Graph-based disambiguation of named
+  entities using linked data}. In \bibinfo{booktitle}{{\em International
+  Semantic Web Conference}}. Springer, \bibinfo{pages}{457--471}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Usbeck, R\"{o}der, Ngonga~Ngomo, Baron, Both,
+  Br\"{u}mmer, Ceccarelli, Cornolti, Cherix, Eickmann, Ferragina, Lemke, Moro,
+  Navigli, Piccinno, Rizzo, Sack, Speck, Troncy, Waitelonis, and
+  Wesemann}{Usbeck et~al\mbox{.}}{2015}]%
+        {gerbil2015}
+\bibfield{author}{\bibinfo{person}{Ricardo Usbeck}, \bibinfo{person}{Michael
+  R\"{o}der}, \bibinfo{person}{Axel-Cyrille Ngonga~Ngomo},
+  \bibinfo{person}{Ciro Baron}, \bibinfo{person}{Andreas Both},
+  \bibinfo{person}{Martin Br\"{u}mmer}, \bibinfo{person}{Diego Ceccarelli},
+  \bibinfo{person}{Marco Cornolti}, \bibinfo{person}{Didier Cherix},
+  \bibinfo{person}{Bernd Eickmann}, \bibinfo{person}{Paolo Ferragina},
+  \bibinfo{person}{Christiane Lemke}, \bibinfo{person}{Andrea Moro},
+  \bibinfo{person}{Roberto Navigli}, \bibinfo{person}{Francesco Piccinno},
+  \bibinfo{person}{Giuseppe Rizzo}, \bibinfo{person}{Harald Sack},
+  \bibinfo{person}{Ren{\'e} Speck}, \bibinfo{person}{Rapha\"{e}l Troncy},
+  \bibinfo{person}{J\"{o}rg Waitelonis}, {and} \bibinfo{person}{Lars
+  Wesemann}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{GERBIL: General Entity Annotator Benchmarking
+  Framework}. In \bibinfo{booktitle}{{\em Proceedings of the 24th International
+  Conference on World Wide Web}} {\em (\bibinfo{series}{WWW '15})}.
+  \bibinfo{pages}{1133--1143}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Waitelonis and Sack}{Waitelonis and
+  Sack}{2016}]%
+        {waitelonis2016}
+\bibfield{author}{\bibinfo{person}{J{\"o}rg Waitelonis} {and}
+  \bibinfo{person}{Harald Sack}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Named Entity Linking in\# Tweets with KEA.}. In
+  \bibinfo{booktitle}{{\em \# Microposts}}. \bibinfo{pages}{61--63}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Witten and Milne}{Witten and Milne}{2008}]%
+        {witten2008}
+\bibfield{author}{\bibinfo{person}{Ian Witten} {and} \bibinfo{person}{David
+  Milne}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{An effective, low-cost measure of semantic
+  relatedness obtained from Wikipedia links}. In \bibinfo{booktitle}{{\em
+  Proceeding of AAAI Workshop on Wikipedia and Artificial Intelligence: an
+  Evolving Synergy, AAAI Press, Chicago, USA}}. \bibinfo{pages}{25--30}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Yamada, Takeda, and Takefuji}{Yamada
+  et~al\mbox{.}}{2015}]%
+        {yamada2015}
+\bibfield{author}{\bibinfo{person}{Ikuya Yamada}, \bibinfo{person}{Hideaki
+  Takeda}, {and} \bibinfo{person}{Yoshiyasu Takefuji}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{An end-to-end entity linking approach for tweets}.
+  In \bibinfo{booktitle}{{\em 5th Workshop on Making Sense of Microposts: Big
+  Things Come in Small Packages,\# Microposts 2015, at the 24th International
+  Conference on the World Wide Web, WWW 2015}}. CEUR-WS.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Yang and Chang}{Yang and Chang}{2016}]%
+        {yang2016}
+\bibfield{author}{\bibinfo{person}{Yi Yang} {and} \bibinfo{person}{Ming-Wei
+  Chang}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{S-mart: Novel tree-based structured learning
+  algorithms applied to tweet entity linking}.
+\newblock \bibinfo{journal}{{\em arXiv preprint arXiv:1609.08075\/}}
+  (\bibinfo{year}{2016}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Yosef}{Yosef}{2016}]%
+        {aida2016}
+\bibfield{author}{\bibinfo{person}{Mohamed~Amir Yosef}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{U-AIDA: a customizable system for named entity
+  recognition, classification, and disambiguation}.
+\newblock  (\bibinfo{year}{2016}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Yosef, Hoffart, Bordino, Spaniol, and
+  Weikum}{Yosef et~al\mbox{.}}{2011}]%
+        {yosef2011}
+\bibfield{author}{\bibinfo{person}{Mohamed~Amir Yosef},
+  \bibinfo{person}{Johannes Hoffart}, \bibinfo{person}{Ilaria Bordino},
+  \bibinfo{person}{Marc Spaniol}, {and} \bibinfo{person}{Gerhard Weikum}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Aida: An online tool for accurate disambiguation of
+  named entities in text and tables}.
+\newblock \bibinfo{journal}{{\em Proceedings of the VLDB Endowment\/}}
+  \bibinfo{volume}{4}, \bibinfo{number}{12} (\bibinfo{year}{2011}),
+  \bibinfo{pages}{1450--1453}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zhang, F{\"a}rber, and Rettinger}{Zhang
+  et~al\mbox{.}}{2014}]%
+        {zhang2014xlid}
+\bibfield{author}{\bibinfo{person}{Lei Zhang}, \bibinfo{person}{Michael
+  F{\"a}rber}, {and} \bibinfo{person}{Achim Rettinger}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{xLiD-Lexica: Cross-lingual Linked Data Lexica.}. In
+  \bibinfo{booktitle}{{\em LREC}}. \bibinfo{pages}{2101--2105}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zhang and Rettinger}{Zhang and
+  Rettinger}{2014}]%
+        {zhang2014}
+\bibfield{author}{\bibinfo{person}{Lei Zhang} {and} \bibinfo{person}{Achim
+  Rettinger}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{X-LiSA: cross-lingual semantic annotation}.
+\newblock \bibinfo{journal}{{\em Proceedings of the VLDB Endowment\/}}
+  \bibinfo{volume}{7}, \bibinfo{number}{13} (\bibinfo{year}{2014}),
+  \bibinfo{pages}{1693--1696}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zheng, Si, Li, Chang, and Zhu}{Zheng
+  et~al\mbox{.}}{2012}]%
+        {zheng2012}
+\bibfield{author}{\bibinfo{person}{Zhicheng Zheng}, \bibinfo{person}{Xiance
+  Si}, \bibinfo{person}{Fangtao Li}, \bibinfo{person}{Edward~Y Chang}, {and}
+  \bibinfo{person}{Xiaoyan Zhu}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Entity disambiguation with freebase}. In
+  \bibinfo{booktitle}{{\em Proceedings of the The 2012 IEEE/WIC/ACM
+  International Joint Conferences on Web Intelligence and Intelligent Agent
+  Technology-Volume 01}}. IEEE Computer Society, \bibinfo{pages}{82--89}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zwicklbauer, Seifert, and
+  Granitzer}{Zwicklbauer et~al\mbox{.}}{2016a}]%
+        {zwicklbauer2016doser}
+\bibfield{author}{\bibinfo{person}{Stefan Zwicklbauer},
+  \bibinfo{person}{Christin Seifert}, {and} \bibinfo{person}{Michael
+  Granitzer}.} \bibinfo{year}{2016}\natexlab{a}.
+\newblock \showarticletitle{DoSeR-a knowledge-base-agnostic framework for
+  entity disambiguation using semantic embeddings}. In \bibinfo{booktitle}{{\em
+  International Semantic Web Conference}}. Springer, \bibinfo{pages}{182--198}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zwicklbauer, Seifert, and
+  Granitzer}{Zwicklbauer et~al\mbox{.}}{2016b}]%
+        {zwicklbauer2016robust}
+\bibfield{author}{\bibinfo{person}{Stefan Zwicklbauer},
+  \bibinfo{person}{Christin Seifert}, {and} \bibinfo{person}{Michael
+  Granitzer}.} \bibinfo{year}{2016}\natexlab{b}.
+\newblock \showarticletitle{Robust and collective entity disambiguation through
+  semantic embeddings}. In \bibinfo{booktitle}{{\em Proceedings of the 39th
+  International ACM SIGIR conference on Research and Development in Information
+  Retrieval}}. ACM, \bibinfo{pages}{425--434}.
+\newblock
+
+
+\end{thebibliography}
